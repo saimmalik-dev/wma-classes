@@ -1,0 +1,115 @@
+<!-- div
+fieldset
+video -> muted
+input -> id -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav>
+        navbar
+    </nav>
+
+
+    <!-- hero section -->
+    <section style="display:flex; flex-direction: column;">
+
+        <div style="border: 1px solid red;">
+            <h1>Hero Heading</h1>
+            <h2>
+                Sub Heading
+            </h2>
+
+            <p>
+                Lorem, ipsum.
+            </p>
+
+            <div>
+                <button>Button 1</button>
+                <button>Button 2</button>
+            </div>
+
+
+            <div>
+                <button>Button 1</button>
+                <button>Button 2</button>
+            </div>
+        </div>
+        <div style="border: 1px solid red;">
+            <img src="./submit.jpg" alt="">
+        </div>
+        <!-- <span> &#x20BF;</span> -->
+
+    </section>
+
+    <div>
+        <!-- <video src="./7563832-hd_1080_1920_30fps.mp4" controls loop autoplay width="100" height="500"></video> -->
+        <video src="./Speaker Headphones Left And Right Test_1080p.mp4" controls loop width="500" height="500" autoplay
+            muted></video>
+    </div>
+
+    <!-- <audio src="./sunflower-street-drumloop-85bpm-163900.mp3"></audio> -->
+
+
+    <img src="./submit.jpg" alt="">
+    <img src="./submit.jpg" alt="">
+
+    <form action="">
+
+        <audio src="./sunflower-street-drumloop-85bpm-163900.mp3" controls></audio>
+
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <div>
+
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <!-- <span class="error">User is invalid</span> -->
+            </div>
+
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+        </fieldset>
+
+        <button>
+            Submit
+        </button>
+    </form>
+
+
+    <progress id="file" value="32" max="100"> 32% </progress>
+
+
+    <meter min="0" max="100" value="75"></meter>
+
+</body>
+
+</html>
