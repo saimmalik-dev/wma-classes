@@ -1,3 +1,8 @@
+
+*{
+    border: 1px solid red;
+}
+
 body {
     /* border: 2px solid red; */
     margin: 20px;
@@ -5,5 +10,5 @@ body {
 
 .heading {
     color: blue;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }

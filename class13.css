@@ -1,0 +1,113 @@
+/* section {
+    height: 100px;
+    border: 1px solid red;
+} */
+
+/* div {
+    border: 1px solid green;
+}
+
+#section1 {
+    border: 1px solid brown;
+    height: 100px;
+}
+
+
+#section2 {
+    height: 200px;
+    border: 1px solid goldenrod;
+}
+
+
+#section3 {
+    border: 1px solid rebeccapurple;
+    height: 300px;
+}
+
+#section4 {
+    border: 1px solid green;
+    height: 400px;
+}
+
+#section5 {
+    border: 1px solid rebeccapurple;
+    height: 500px;
+} */
+
+/* div .note {
+    border: 1px solid red;
+} */
+
+.parent p {
+    border: 1px solid green;
+    color: red;
+}
+
+
+/* * {
+    font-family: Arial, Verdana, sans-serif;
+    color: brown;
+} */
+
+h1 {
+    font-family: "Courier New", monospace;
+}
+
+i {
+    color: green;
+}
+
+i {
+    color: red;
+}
+
+/* b {
+    color: pink;
+}
+ */
+
+
+
+/* 
+p b {
+    color: blue !important;
+}
+
+
+
+
+
+p b {
+    color: red;
+} */
+
+/* 
+p#intro {
+font-size: 100%;}
+p {
+font-size: 75%;} */
+
+
+
+
+body {
+    font-family: Arial, Verdana, sans-serif;
+    color: #ff8000;
+    padding: 10px;
+    /* border-color: black;
+    border-width: 1px;
+    border-style: solid; */
+    border: 1px solid red;
+}
+
+.page {
+    border: 1px solid #665544;
+    background-color: #efefef;
+    padding: inherit;
+    /* padding: inherit; */
+}
+
+
+div > p{
+    color: green;
+}
