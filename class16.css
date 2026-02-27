@@ -1,0 +1,32 @@
+.div {
+    /* margin-top: 50px; */
+    border: 1px solid black;
+    padding: 20px 100px;
+    /*  padding: top-bottom left-right;  */
+    /* padding-left: 200px; */
+    /* text-align: center; */
+    width: 200px;
+    display: block;
+    margin: 40px auto;
+    box-shadow: 20px 50px 10px #db17179c;
+    border-radius: 6px;
+    border-radius: 1em 4em 1em 4em;
+    background-color: blanchedalmond;
+    /* text-shadow: 20px -5px #777777; */
+}
+
+li {
+    /* border: 1px solid red; */
+    display: inline;
+    /* display: inline-block; */
+    /* margin-right: 10px; */
+}
+
+li.coming-soon {
+    /* display: none; */
+    visibility: hidden;
+}
+
+span {
+    display: block;
+}

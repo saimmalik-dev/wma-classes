@@ -1,0 +1,31 @@
+*{
+    /* margin: 0;
+    padding: 0; */
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Betania+Patmos+In&display=swap'); */
+@font-face {
+    font-family: 'Betania Patmos In';
+    src: url('https://fonts.googleapis.com/css2?family=Betania+Patmos+In&display=swap');
+}
+
+
+body {
+    background-color: aqua;
+}
+
+h1 {
+    color: #1e1ae9;
+    background-color: rgba(180, 59, 59, 0.693);
+    /* opacity: 0; */
+    /* font-family: cursive; */
+    font-weight: bold;
+}
+
+
+p {
+    font-weight: lighter;
+    font-style: oblique 40deg;
+    text-transform: capitalize;
+    text-decoration:wavy;
+}
