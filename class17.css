@@ -1,0 +1,100 @@
+td.description {
+    border: 1px solid red;
+    /* min-width: 450px; */
+    max-width: 650px;
+    text-align: left;
+    padding: 5px;
+    margin: 0px;
+}
+
+p.one {
+    max-width: 100px;
+    max-height: 100px;
+    /* font-size: 5px; */
+    overflow: scroll;
+    /* border-width: 10px 25px; */
+    border-style: solid;
+    border-color: red;
+
+
+    border: 1px solid red;
+}
+
+p.one {
+    border-style: solid;
+}
+
+p.two {
+    border-style: dotted;
+}
+
+p.three {
+    border-style: dashed;
+}
+
+p.four {
+    border-style: double;
+}
+
+p.five {
+    border-style: groove;
+}
+
+p.six {
+    border-style: ridge;
+}
+
+p.seven {
+    border-style: inset;
+}
+
+p.eight {
+    border-style: outset;
+}
+
+
+
+/* div {
+    padding: 40px 10px;
+    width: 400px;
+    margin: 10px auto;
+    border: 1px solid red;
+} */
+
+
+li {
+    border: 1px solid red;
+    display: inline;
+    margin-right: 20px;
+}
+
+li.coming-soon {
+    /* display: none; */
+    visibility: visible;
+}
+
+span {
+    display: block;
+}
+
+
+p.one {
+    /* -moz-border-image: url("images/dots.gif") 11 11 11 11 stretch;
+    -webkit-border-image: url("images/dots.gif") 11 11 11 11 stretch;
+    border-image: url("images/dots.gif") 11 11 11 11 stretch; */
+}
+
+p.two {
+
+
+    /* border-width: 10px;
+    border-image: linear-gradient(to right, #f6b73c, #4d9f0c)1; */
+
+    /* border-image: url("./assets/image.jpg") 27 round; */
+}
+
+.container {
+    max-width: 400px;
+    /* border: 1px solid red; */
+    box-shadow: inset 5px 5px 2px 10px #777777;
+}
