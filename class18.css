@@ -1,0 +1,68 @@
+ol {
+    /* list-style-type: lower-roman; */
+    /* list-style-image: url('./assets/image.jpg'); */
+    /* list-style-position: inside; */
+    list-style: square outside url('./assets/image.jpg');
+}
+
+td {
+    border: 1px solid red;
+    height: 40px;
+    /* width: 40px; */
+}
+
+table {
+    border: 1px solid red;
+    empty-cells: show;
+    border-spacing: 20px;
+    /* border-collapse: collapse; */
+}
+
+
+.heading {
+    color: red;
+}
+
+.inner-heading {
+    color: inherit;
+}
+
+input {
+    /* display: block;
+    padding: 10px;
+    margin: 10px; */
+    display: block;
+
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 30px;
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input#email {
+    /* background-color: red; */
+}
+input#password {
+    /* background-color: green; */
+    /* background-image: url(./assets/image.jpg); */
+}
+
+
+.form {
+    /* text-align: center; */
+    width: fit-content;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #777777;
+    border: 1px solid red;
+
+}
+
+/* span{
+    display: block;
+} */
