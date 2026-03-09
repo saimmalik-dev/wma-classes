@@ -1,0 +1,86 @@
+input {
+    /* display: block;
+    padding: 10px;
+    margin: 10px; */
+
+
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 30px;
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    /* display: block; */
+    margin-bottom: 10px;
+    outline: none;
+}
+
+input#email {
+    /* background-color: red; */
+}
+
+input#password {
+    /* background-color: green; */
+    /* background-image: url(./assets/image.jpg); */
+}
+
+#name:hover {
+    border: 3px solid blue;
+}
+
+#name:focus {
+    border: 1px solid red;
+}
+
+.form {
+    /* text-align: center; */
+    width: fit-content;
+    margin: 10px auto;
+    /*  padding: 20px;
+    
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #777777; */
+    /* border: 1px solid red; */
+
+}
+
+button {
+    padding: 6px 20px;
+    margin: 5px auto;
+    display: block;
+
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    /* box-shadow: 10px 10px 10px #888888; */
+    background-color: #3e9d41;
+}
+
+
+fieldset {
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    /* text-align: right; */
+}
+
+legend {
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border: 1px solid #bdbdbd;
+    text-transform: uppercase;
+    border-radius: 6px;
+}
+
+.input-div {
+
+    cursor: url("./assets/image.jpg");
+    margin: 10px;
+    padding-bottom: 10px;
+    width: 200px;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/ea8ef3fd0f.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .parent {
+            border: 1px solid red;
+            margin-left: 100px;
+            z-index: 111;
+            position: relative;
+
+        }
+
+        p.example {
+            /* position: relative; */
+            top: 10px;
+            left: 100px;
+            /* top: 10px;
+            left: 100px; */
+            border: 1px solid black;
+        }
+
+        h1 {
+            /* position: absolute; */
+            bottom: 10px;
+
+        }
+
+        button {
+            background-color: aqua;
+            border: none;
+            color: black;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            /* z-index: -1; */
+            /* z-index: -1; */
+        }
+
+        /* .background {
+            border: 1px solid red;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(81, 73, 73, 0.9);
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border: 1px solid red;
+            color: white;
+        } */
+
+        .background {
+            /* border: 1px solid red; */
+            position: relative;
+            /* position: relative; */
+        }
+
+        .bgImg {
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 100vh;
+        }
+
+        .overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(48, 53, 53, 0.579);
+            color: white;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, at doloribus, aspernatur minima numquam saepe
+    impedit natus nemo beatae fugit ipsam, soluta quos fugiat dolores doloremque ex in quibusdam molestiae.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, at doloribus, aspernatur minima numquam saepe
+    impedit natus nemo beatae fugit ipsam, soluta quos fugiat dolores doloremque ex in quibusdam molestiae.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, at doloribus, aspernatur minima numquam saepe
+    impedit natus nemo beatae fugit ipsam, soluta quos fugiat dolores doloremque ex in quibusdam molestiae.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, at doloribus, aspernatur minima numquam saepe
+    impedit natus nemo beatae fugit ipsam, soluta quos fugiat dolores doloremque ex in quibusdam molestiae. -->
+
+    <div class="background">
+        <img src="./bgImg.webp" alt="" class="bgImg">
+        <div class="overlay"></div>
+
+        <div class="text">
+            <h1>The Evolution of the Bicycle</h1>
+        </div>
+
+    </div>
+
+
+    <!-- <div class="background">
+        <img src="./submit.jpg" alt="" style="border: 1px solid red; width: 100%;">
+        <div class="overlay"></div>
+
+        <div class="text">
+            See the world through my eyes
+        </div>
+
+    </div> -->
+
+
+    <!-- <div class="parent">
+
+        <h1>The Evolution of the Bicycle</h1>
+        <p>In 1817 Baron von Drais invented a walking
+            machine that would help him get around the
+            royal gardens faster...
+        </p>
+
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+
+
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+        <p class="example">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure id, labore deleniti expedita voluptatem
+            ullam,
+            fuga eaque culpa nihil quos recusandae mollitia a impedit harum quis qui modi molestiae vitae.
+        </p>
+    </div>
+
+
+    <button>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button> -->
+
+    <!-- <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi unde modi natus velit magni, maiores in beatae
+        nesciunt voluptates, voluptatem assumenda, quam quidem qui animi pariatur aliquam fugit dolorem tenetur.
+    </div> -->
+</body>
+
+</html>
