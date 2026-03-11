@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 21 - CSS Position</title>
+    <script src="https://kit.fontawesome.com/ea8ef3fd0f.js" crossorigin="anonymous"></script>
+
+    <style>
+        .main-div {
+            border: 1px solid red;
+            margin-left: 30px;
+            /* position: relative; */
+        }
+
+        .inner-div {
+            border: 1px solid black;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        button {
+            background-color: aqua;
+            border: none;
+            color: black;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: -1;
+            /* z-index: -1; */
+            /* z-index: -1; */
+        }
+
+        blockquote {
+            /* border: 1px solid red; */
+            float: right;
+            width: 200px;
+            font-size: 130%;
+            /* float: right; */
+            /* width: 275px;
+
+            font-style: italic;
+            font-family: Georgia, Times, serif;
+            margin: 0px 0px 10px 10px;
+            padding: 10px;
+            border-top: 1px solid #665544;
+            border-bottom: 1px solid #665544; */
+        }
+
+        p {
+            border: 2px solid red;
+            width: 300px;
+            /* height: 300px; */
+            float: left;
+        }
+        .clear{
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1>
+            The Evolution of the Bicycle
+        </h1>
+
+        <p> <strong>Para 1</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quod unde tempora
+            non. Consequuntur
+            repudiandae quaerat illum, perspiciatis, optio commodi mollitia, illo rerum consectetur sint distinctio
+            magnam! Recusandae, omnis eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi totam
+            delectus sit molestias dolorum consectetur incidunt minus repellendus rerum ratione, impedit eius
+            perferendis enim reiciendis ad fugiat velit officia vel obcaecati provident soluta asperiores. Atque, quos
+            molestiae pariatur quod, similique cumque nam, aut doloremque labore vero vel accusamus natus deleniti!</p>
+
+        <p> <strong>Para 2</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat explicabo
+            corrupti, voluptas aut vel animi.
+            Excepturi laboriosam reprehenderit explicabo hic, ea laudantium similique quisquam natus debitis reiciendis
+            voluptas dolorum iure eius sed repellat saepe nesciunt deleniti numquam amet minus! Minus?</p>
+
+        <p> <strong>Para 3</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque velit molestiae
+            repellendus amet sed quaerat
+            corporis expedita optio sequi vitae, repudiandae beatae odit eveniet, aliquam ab rem inventore autem at quis
+            cumque. Blanditiis reprehenderit, similique quos iusto minus animi repudiandae, ut iste a quae deleniti
+            consectetur. Unde earum quis odio.</p>
+
+
+        <p class="clear"> <strong>Para 4</strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. In deleniti veniam
+            assumenda quaerat possimus
+            necessitatibus consequuntur corporis ad consequatur? Voluptatum quos, sapiente dolorum sequi doloremque </p>
+
+        <p> <strong>Para 5</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, fugiat eaque,
+            accusamus, dolorum
+            incidunt ad hic delectus ducimus fuga officia nulla dignissimos? Facilis architecto quae culpa illo sit
+            mollitia, optio quas, eligendi libero quia dignissimos dolor nobis recusandae in ipsum magni sunt, velit
+            iste? Saepe itaque quis unde recusandae, vel quam maiores error provident eligendi autem. Inventore saepe,
+            sequi obcaecati reiciendis quasi ratione! Nulla dolorum unde culpa, sit nostrum molestiae.</p>
+
+        <p> <strong>Para 6</strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci, harum nam? Rerum
+            veritatis neque vel
+            exercitationem molestias voluptatem minus asperiores quos ipsa quasi sapiente, soluta facere fugiat deserunt
+            culpa necessitatibus odio magnam totam maiores tempora explicabo doloribus ratione. Ducimus alias, magni
+            soluta sequi quia dolorem impedit sapiente, similique doloremque tempore ratione, quaerat deleniti dolores
+            recusandae nesciunt velit odio commodi! Rem incidunt quis voluptatum id cum ullam, sint repellat dolor enim
+            sapiente autem ea repudiandae placeat quos mollitia velit odio earum.</p>
+
+    </div>
+
+    <!-- <h1>The Evolution of the Bicycle</h1>
+    <blockquote>"Life is like riding a bicycle.
+        To keep your balance you must keep moving." -
+        Albert Einstein</blockquote>
+    <p>In 1817 Baron von Drais invented a walking
+        machine that would help him get around the royal
+        gardens faster: two same-size in-line wheels, the
+        front one steerable, mounted in a frame .</p> -->
+
+
+    <!-- <div class="main-div">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+            exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+            repellendus deleniti.
+        </p>
+        <div class="inner-div">
+            <h1>Heading 1</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+        </div>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores tempora minus quia veritatis dolorem
+        exercitationem id explicabo voluptates eaque eveniet! Eaque minima sequi quae! Dolor explicabo eaque saepe
+        repellendus deleniti.
+    </p>
+
+    <div>
+
+        <button>
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div> -->
+
+
+</body>
+
+</html>
