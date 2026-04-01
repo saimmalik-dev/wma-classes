@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* border: 1px solid black; */
+        }
+
+        .dashboard {
+            border: 1px solid black;
+            display: flex;
+            height: 100vh;
+            /* flex-direction: row-reverse; */
+        }
+
+        aside {
+            border: 1px solid black;
+            width: 20%;
+        }
+
+        aside ul {
+            list-style-type: none;
+        }
+
+        aside ul li {
+            padding: 10px;
+            background-color: red;
+            color: #fff;
+        }
+
+     
+
+        
+        .active {
+            /* margin: 10px; */
+            background-color: green;
+            color: #fff;
+        }
+
+        .main-content {
+            border: 1px solid black;
+            width: 80%;
+            /* flex: 1; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+
+
+        <aside>
+            this is sidebar
+            <ul>
+                <li class="">Link 1</li>
+                <li class="active">Link 2</li>
+                <li>Link 3</li>
+
+            </ul>
+
+        </aside>
+
+        <div class="main-content">
+            this is dashboard content
+
+            <figure>
+<img src="./bgImg.webp" alt="Bok Choi" />
+<figcaption>Bok Choi</figcaption>
+</figure>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
