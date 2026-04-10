@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 28</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+            border: 1px solid red;
+            align-items: center;
+        }
+
+        .left {
+            flex: 1;
+            border: 1px solid black;
+        }
+
+        .right {
+            flex: 1;
+            border: 1px solid black;
+
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+
+        @media screen and (max-width: 980px) {
+            .container {
+                flex-direction: column;
+                background-color: red;
+            }
+        }
+
+
+        @media screen and (max-width:600px) {
+            .container {
+                background-color: green;
+            }
+        }
+
+
+        @media screen and (width:400px) {
+            .container {
+                background-color: blue;
+            }
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/ea8ef3fd0f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left">
+            <h1>Lorem </h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur aspernatur, illo distinctio quia
+                hic voluptatem! Eaque laborum modi doloribus odit nemo illo error numquam, dignissimos tenetur nobis
+                beatae velit architecto sapiente minima et iusto cum inventore <i class="fa-regular fa-envelope"></i>,
+                totam, doloremque aliquam! Sunt unde,<i class="fa-solid fa-envelope"></i>
+                mollitia quas sed accusantium dolores esse facere delectus velit!</p>
+        </div>
+
+        <div class="right">
+            <h1>Lorem </h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur aspernatur, illo distinctio quia
+                hic voluptatem! Eaque laborum modi doloribus odit nemo illo error numquam, dignissimos tenetur nobis
+                beatae velit architecto sapiente minima et iusto cum inventore <i class="fa-regular fa-envelope"></i>,
+                totam, doloremque aliquam! Sunt unde,<i class="fa-solid fa-envelope"></i>
+                mollitia quas sed accusantium dolores esse facere delectus velit!</p>
+            <!-- <img src="./environment.webp" alt=""> -->
+        </div>
+    </div>
+</body>
+
+</html>
