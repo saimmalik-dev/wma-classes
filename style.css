@@ -1,0 +1,53 @@
+.container {
+    /* width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-div {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+
+    /* position: absolute;
+    left: 50%; */
+    /* translate: x-axis y-axis; */
+    /* translate: 0px 0px; */
+    /* transition: all 2s cubic-bezier(0, 1.02, 0, 1.03) 1s; */
+    /* margin: 0 auto; */
+    margin: auto;
+    /* animation-name: ;
+    animation-duration: ;
+    animation-timing-function: ;
+    animation-delay: ; */
+    animation: ZoonInOut 5s ease 0s infinite;
+}
+
+/* .animated-div:hover {} */
+
+@keyframes ZoonInOut {
+
+    0% {
+        height: 200px;
+        width: 200px;
+        /* background-color: red; */
+        /* transform: translate(0px, 0px); */
+    }
+
+    50% {
+        height: 400px;
+        width: 400px;
+        /* background-color: red; */
+        /* transform: translate(0px, 0px); */
+    }
+
+    100% {
+        height: 200px;
+        width: 200px;
+    }
+
+}
