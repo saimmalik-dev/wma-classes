@@ -1,0 +1,114 @@
+.container {
+    /* width: 200px;
+    height: 200px; */
+    border: 1px solid red;
+    /* background-color: red; */
+    /* animation-name: move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite; */
+}
+
+.hero-section {
+    display: flex;
+    border: 1px solid red;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.left {
+    border: 1px solid red;
+    width: 50%;
+    transform: translateX(-100%);
+
+    animation: left-reveal 2s ease-out forwards;
+}
+
+@keyframes left-reveal {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
+.right {
+    border: 1px solid red;
+    /* width: 50%; */
+    transform: translateX(100%);
+    animation: right-reveal 2s ease forwards;
+}
+
+@keyframes right-reveal {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
+
+
+
+img {
+    border-radius: 10px;
+}
+
+
+.card-section {
+    display: flex;
+    gap: 10px;
+    border: 1px solid red;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+.card {
+    border: 1px solid red;
+    padding: 10px;
+    width: 200px;
+    height: 400px;
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    /* box-shadow: 1px 1px 10px black; */
+    transform: scale(1.05);
+}
+
+
+.card button {
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.card button:hover {
+    transform: scale(1.2);
+}
+
+
+.fade-in-img {
+    border: 1px solid red;
+    animation: fade-in 3s ease infinite;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
