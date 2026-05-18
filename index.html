@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .css-div {
+            display: flex;
+            /* display: flex; */
+            height: auto;
+        }
+
+
+
+        .css-div>div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        .child-div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+        }
+
+        .navbar {
+            background-color: #f85606 !important;
+        }
+
+        .container {
+            width: 90% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <span>4324</span>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar  navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#"><img
+                    src="https://lzd-img-global.slatic.net/us/domino/3b870cb043c7f8a9741cbf66329e294e.png" alt=""></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <form class="d-flex mx-auto" role="search">
+                    <div class="d-flex align-items-center bg-white h-100">
+                        <input class="form-control border-0 me-2 ps-4" type="search" placeholder="Search"
+                            aria-label="Search" />
+                        <div class="">
+                            <i class="fa-solid fa-magnifying-glass px-4"></i>
+                        </div>
+                    </div>
+
+
+                    <!--
+                     <div class="position-relative bg-white h-100">
+                        <input class="form-control me-2 ps-4" type="search" placeholder="Search" aria-label="Search" />
+                        <i class="fa-solid fa-magnifying-glass position-absolute start-0 top-50"></i>
+                    </div> 
+                    -->
+                    <button class="btn btn-primary ms-4" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="d-none mx-auto w-25 border p-4 rounded-4 bg-light">
+        <div class="text-end mb-2 text-secondary">
+            <span>ID 123</span>
+        </div>
+        <div>
+            <img src="apple-iphone-17.jpg" alt="" class="w-100">
+        </div>
+
+        <div class="my-4">
+            <h1>Apple Iphone 17</h1>
+
+            <div class="d-flex gap-4">
+                <div>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <div>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>97</span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="d-flex  justify-content-between align-items-center">
+            <div>
+                <div class="d-flex gap-4">
+                    <div class="text-secondary">
+                        <s>$999</s>
+                    </div>
+                    <div>
+                        <span class="badge rounded-pill text-bg-info">10%</span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <h2>$899.0</h2>
+                </div>
+
+
+            </div>
+            <div class="bg-primary text-white p-3 rounded-2">
+                <i class="fa-solid fa-cart-shopping fs-5"></i>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="card mx-auto d-none" style="width: 18rem;">
+        <img src="./apple-iphone-17.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Apple Iphone 17</h5>
+            <div class="d-flex gap-4">
+                <div>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <div>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>97</span>
+                </div>
+            </div>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
+                content.</p> -->
+            <div class="d-flex mt-3 justify-content-between align-items-center">
+                <div>
+                    <div class="d-flex gap-4">
+                        <div class="text-secondary">
+                            <s>$999</s>
+                        </div>
+                        <div>
+                            <span class="badge rounded-pill text-bg-info">10%</span>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <h2>$899.0</h2>
+                    </div>
+
+
+                </div>
+                <div class="bg-primary text-white p-3 rounded-2">
+                    <i class="fa-solid fa-cart-shopping fs-5"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- <h1>Hello, world!</h1>
+    <div class="css-div">
+        <div>
+            div 1
+        </div>
+        <div>
+            div 2
+        </div>
+        <div>
+            div 3
+        </div>
+    </div>
+
+
+    <section class="d-none">
+        <div class="child-div">
+            div 1
+        </div>
+        <div class="child-div">
+            div 2
+        </div>
+        <div class="child-div">
+            div 3
+        </div>
+    </section>
+
+
+
+    <div class="grid text-center border border-danger">
+        <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+        <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+        <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+    </div> -->
+
+
+    <script src="https://kit.fontawesome.com/ea8ef3fd0f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
