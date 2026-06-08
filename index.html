@@ -1,16 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Explore Pakistan 2026 - Registration Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    js here linkd
-    <h1>hello world</h1>
-    <script src="./app.js"></script>
-</body>
 
+<div class="container">
+
+    <div class="header">
+        <h1>Explore Pakistan 2026</h1>
+        <h2>An Unforgettable Journey for All Ages</h2>
+
+        <div class="taglines">
+            <p>Creating Memories Across Pakistan</p>
+            <p>Adventure, Culture, and Nature for Everyone</p>
+            <p>Travel Together, Discover Pakistan</p>
+            <p>From the Peaks of the North to the Shores of the South</p>
+            <p>A Journey for Families, Friends, and Explorers</p>
+        </div>
+    </div>
+
+    <form>
+
+        <!-- Personal Information -->
+        <div class="section">
+            <h3>Personal Information</h3>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Father/Husband Name</label>
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>CNIC / B-Form Number</label>
+                    <input type="text">
+                </div>
+
+                <div class="input-group">
+                    <label>Date of Birth</label>
+                    <input type="date">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number">
+                </div>
+
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select>
+                        <option>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="section">
+            <h3>Contact Information</h3>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Mobile Number</label>
+                    <input type="tel">
+                </div>
+
+                <div class="input-group">
+                    <label>WhatsApp Number</label>
+                    <input type="tel">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email">
+            </div>
+
+            <div class="input-group">
+                <label>Residential Address</label>
+                <textarea rows="3"></textarea>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>City</label>
+                    <input type="text">
+                </div>
+
+                <div class="input-group">
+                    <label>Province</label>
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <div class="section">
+            <h3>Emergency Contact Details</h3>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Emergency Contact Name</label>
+                    <input type="text">
+                </div>
+
+                <div class="input-group">
+                    <label>Relationship</label>
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Emergency Contact Number</label>
+                <input type="tel">
+            </div>
+        </div>
+
+        <!-- Tour Package -->
+        <div class="section">
+            <h3>Tour Package Selection</h3>
+
+            <label>Select Package</label>
+
+            <select>
+                <option>Select Package</option>
+                <option>Northern Areas Explorer</option>
+                <option>Heritage Pakistan Tour</option>
+                <option>Coastal Adventure</option>
+                <option>Family Vacation Package</option>
+                <option>Customized Tour</option>
+            </select>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Tour Start Date</label>
+                    <input type="date">
+                </div>
+
+                <div class="input-group">
+                    <label>Tour End Date</label>
+                    <input type="date">
+                </div>
+            </div>
+        </div>
+
+        <!-- Accommodation -->
+        <div class="section">
+            <h3>Accommodation Preference</h3>
+
+            <select>
+                <option>Select Accommodation</option>
+                <option>Standard</option>
+                <option>Deluxe</option>
+                <option>Executive</option>
+                <option>Family Suite</option>
+            </select>
+        </div>
+
+        <!-- Medical -->
+        <div class="section">
+            <h3>Medical Information</h3>
+
+            <label>Do you have any medical condition?</label>
+            <textarea rows="3"></textarea>
+
+            <label>Special Assistance Required?</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <!-- Activities -->
+        <div class="section">
+            <h3>Activities of Interest</h3>
+
+            <div class="checkbox-grid">
+                <label><input type="checkbox"> Sightseeing</label>
+                <label><input type="checkbox"> Hiking</label>
+                <label><input type="checkbox"> Trekking</label>
+                <label><input type="checkbox"> Photography</label>
+                <label><input type="checkbox"> Cultural Visits</label>
+                <label><input type="checkbox"> Shopping</label>
+                <label><input type="checkbox"> Wildlife</label>
+                <label><input type="checkbox"> Food Exploration</label>
+            </div>
+        </div>
+
+        <!-- Payment -->
+        <div class="section">
+            <h3>Payment Information</h3>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Package Amount (PKR)</label>
+                    <input type="number">
+                </div>
+
+                <div class="input-group">
+                    <label>Payment Method</label>
+                    <select>
+                        <option>Select Method</option>
+                        <option>Cash</option>
+                        <option>Bank Transfer</option>
+                        <option>EasyPaisa</option>
+                        <option>JazzCash</option>
+                        <option>Debit/Credit Card</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Transaction ID</label>
+                <input type="text">
+            </div>
+        </div>
+
+        <!-- Declaration -->
+        <div class="section">
+            <h3>Declaration</h3>
+
+            <label class="checkbox">
+                <input type="checkbox" required>
+                I confirm that all information provided is accurate.
+            </label>
+
+            <label class="checkbox">
+                <input type="checkbox">
+                I agree to the Terms & Conditions.
+            </label>
+
+            <label class="checkbox">
+                <input type="checkbox">
+                I allow photos/videos for promotional purposes.
+            </label>
+        </div>
+
+        <button type="submit">Submit Registration</button>
+
+    </form>
+
+</div>
+
+</body>
 </html>
