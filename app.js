@@ -1,101 +1,93 @@
-// var num1 = "3";
-// var num2 = 3;
-// console.log(num1 == num2); // only compare values
-// console.log(num1 === num2); // compare both values and data-types
+// // Nested Statements
+// // Nested -> one statement inside another one statement
 
 
+// // Nested IF Statements
+// // Nested -> if statement inside another if statement
 
-// Comparision Operators
-// === // equality operator
-// !== // not equal operator
-// == // equality operator
-// != // not equal operator
-// < // less than operator
-// > // greater than operator
-// <= // less than or equal to operator
-// >= // greater than or equal to operator
+// var age = 22;
+// var isStudent = false;
 
 
+// if (age >= 18) { // outer if statement
 
+//     if (isStudent == true) {   // inner if statement
+//         console.log("Student discount verified: 10% off")
+//     }
+//     else {
+//         console.log("Regular movie price.")
+//     }
 
-
-// Logical Operators
-// && // logical AND operator
-// || // logical OR operator
-// ! // logical NOT operator
-
-
-
-// CONTROL STRUCTURES
-// IF STATEMENTS
-
-// var age = 18;
-// if (age >= 18) {
-//     console.log("WELCOME TO ADVENTURE LAND")
 // }
-// var score = 81.1;
-// if (score > 80) {
-//     console.log("Congratulations! You scored:", score)
-// }
-
-// if (test - condition) {
-//     console.log("Congratulations! You scored:", score)
-// }
-
-// If-Else Statements
-var age = 18;
-if (age >= 18) {
-    console.log("welcome")
-}
-else {
-    console.log("you're not allowed")
-}
-
-// if (test - condition) {
-// block of statements
-//     console.log("Congratulations! You scored:", score)
-// }
-// else {
-// else block of statements
+// else { // outer else statement
+//     console.log("Child ticket price.")
 // }
 
 
 
-// If-Else-If OR Else-If Statements
 
-var percentage = 85;
-if (percentage >= 80) {
-    console.log("Grade A-1")
-}
-else if ((percentage >= 70) && (percentage < 80)) {
-    console.log("Grade A")
-}
-else if ((percentage >= 60) && (percentage < 70)) {
-    console.log("Grade B")
-}
-else {
-    console.log("Grade F")
+// --------    Loops  ----------
+// Loops are used to repeat a block of code multiple times until a certain condition is met. There are different types of loops in JavaScript, including:
+
+// 1. For Loop
+// 2. While Loop
+// 3. Do-While Loop
+
+
+
+// console.log(1)
+// console.log(2)
+// console.log(3)
+// console.log(4)
+// console.log(5)
+// console.log(6)
+// console.log(7)
+// console.log(8)
+// console.log(9)
+// console.log(10)
+
+
+
+// 1. For Loop
+// for (initialization, test-condition, incremenet/decrement) {
+var table = 5;
+
+
+for (var i = 1; i <= 10; i++) {
+    console.log(i)
+
+
+
+    // var multiply = table * i;
+    // console.log(table + " x " + i + " = " + multiply)
 }
 
 
-// if (test-condition-1) {
-//     console.log("Grade A-1")
-// }
-// else if (test-condition-2) {
-//     console.log("Grade A")
-// }
-// else if (test-condition-3) {
-//     console.log("Grade B")
-// }
-// else {
-//     console.log("Grade F")
-// }
 
-// Challenge 2 (The Thermometer): 
-// Create a variable named temperature.
-// If it is above 30, log "It's hot outside". 
-// If it's between 15 and 30, log "It's pleasant".
-// If it's below 15, log "Brrr, grab a coat!".
 
+// ATM Cash Withdrawal: 
+// cardStatus -> active or inactive
+// pin -> 
+// amount -> 
+// Check if the user's card is active, then if the PIN is correct, and finally if their account balance is higher than the requested withdrawal amount.
+
+
+
+
+
+
+// Odd or Even: Take a number from the user and print whether it is odd or even.
+
+// Pass or Fail: Check if a student's score is 50 or higher to print "Pass", otherwise print "Fail".
+
+// Simple Counter: Write a loop that prints numbers from 1 to 10 in order.
+
+// Countdown Clock: Write a loop that counts backward from 10 down to 1 and prints "Blast off!".
+
+// Multiplication Table: Ask the user for a number and print its multiplication table from 1 to 10 using a loop.
+
+// Username & Password Login: Check if the username exists, then check if the password matches for that specific user.
+
+// Shopping Discount: Check if the buyer is a member, then check if their bill is over $100 to apply a discount.
 
 
