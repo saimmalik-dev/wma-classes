@@ -1,68 +1,78 @@
-
-// // Car cruise control
-// var speed = 1;
-// var pressAccelarator = 0;
-// while (speed <= 60) {
-//     ++pressAccelarator
-//     console.log("press acccelerator", pressAccelarator);
-//     speed = speed + 1;
-//     console.log("change in speed", speed);
-
-// }
+// ARRAYS IN JS
+// Arrays are the combination of variables;
 
 
-// for( pressAccelarator; pressAccelarator){
-// }
+var city0 = "Atlanta"; // 200-208
+var city1 = "Baltimore";  // 3000
+var city2 = "Chicago";
+var city3 = "Denver";
+var city4 = "Los Angeles";
+var city5 = "Seattle";
 
+var cities = [
+    "Atlanta",  // 0
+    "Chichago", //  1
+    "LA", // 2 
+    "Seattle", // 3
+    "Denver" // 4
+] // 200-205
 
+// Array length
+// array length = number of elements in array
+console.log("initial values", cities)
 
-
-
-
-// var machines = 1;
-// for (machines; machines <= 5; ++machines) {
-//     console.log("Machine No# " + machines +  " ON");
-// }
-
-
-// Your Goal: Write a loop that starts a speed variable at 0. As long as the speed is less than 100, add 20 to it and print the current speed. Stop the loop the exact moment it hits 100.
+console.log(cities[0])
+console.log(cities[4])
 
 
 
+cities[2] = "Los Angeles"
+
+cities.push("NYC")
+cities.push("DC");
+console.log("secondary", cities);
+
+cities[4] = "Ottawa"
+
+// cities.pop();
+
+// cities.splice(1, 4)
+
+console.log(cities)
 
 
 
-// NESTED LOOPS
+// var slicedArray = cities.slice(0, 3)
+// console.log("slicedArray", slicedArray)
+console.log("cities", cities)
 
-// for (var i = 1; i <= 10; i++) { // outer loop
-//     console.log(i);
-//     for (var j = 1; j <= 5; j++) { // inner loop
-//         console.log("value of j is", j);
-//     }
-// }
+cities.shift();
+cities.unshift("New city");
 
-
-// Print SQUARE
-// for (var height = 1; height <= 3; ++height) {
-//     console.log("row 1");
-
-//     // console.log("*".repeat(height))
-//     for (var width = 1; width <= 3; ++width) {
-//         // console.log("col 1");
-
-//         console.log("*".repeat(3))
-//     }
-// }
+console.log("cities", cities)
 
 
-for (var height = 1; height <= 3; ++height) {
-    // console.log("row 1");
 
-    // console.log("*".repeat(height))
-    // for (var width = 1; width <= 3; ++width) {
-        // console.log("col 1");
+// Array Methods
+// 1. push  -> add from rear/end of the array
+// 2. pop  -> remove from rear/end of array
+// 4. unshift ->  add from start/front of array
+// 3. shift  -> remove from start/front of array
+// 5. splice -> remove array from any position in array
+// 6. slice -> gives the new array slice
 
-        console.log("*")
-    // }
-}
+// ----------------- Searching Array methods ------------------------
+// indexOf
+// includes
+// concat = > 
+// 
+
+var numbers1 = [1, 2, 54, 65]
+var numbers2 = [34, 76]
+console.log(numbers1)
+console.log(numbers2)
+
+var numbers = numbers1.indexOf(1) // spread operator
+console.log(numbers)
+
 
