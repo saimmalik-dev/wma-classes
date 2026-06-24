@@ -2,77 +2,50 @@
 // Arrays are the combination of variables;
 
 
-var city0 = "Atlanta"; // 200-208
-var city1 = "Baltimore";  // 3000
-var city2 = "Chicago";
-var city3 = "Denver";
-var city4 = "Los Angeles";
-var city5 = "Seattle";
+var numbers = [1, 2, 54, 65, 45, 50, 56, 78, 89]
+numbers.push(100)
 
-var cities = [
-    "Atlanta",  // 0
-    "Chichago", //  1
-    "LA", // 2 
-    "Seattle", // 3
-    "Denver" // 4
-] // 200-205
-
-// Array length
-// array length = number of elements in array
-console.log("initial values", cities)
-
-console.log(cities[0])
-console.log(cities[4])
+// for (var i = 0; i < numbers.length; i++) {
+//     console.log(numbers[i]) // since i = 0, it will return numbers[0]
+// }
 
 
 
-cities[2] = "Los Angeles"
+// for (let index = 0; index < numbers.length; index++) {
+//     console.log(numbers[index])
+//     if (numbers[index] > 50) {
+//         console.log("Array element value is greater than 50")
+//         break;
+//     }
+// }
 
-cities.push("NYC")
-cities.push("DC");
-console.log("secondary", cities);
-
-cities[4] = "Ottawa"
-
-// cities.pop();
-
-// cities.splice(1, 4)
-
-console.log(cities)
+// numbers.forEach(element => {
+//     console.log("using for each", element)
+// });
 
 
 
-// var slicedArray = cities.slice(0, 3)
-// console.log("slicedArray", slicedArray)
-console.log("cities", cities)
+// for (var i = 1; i <= 5; i++) {
+//     console.log(i);
 
-cities.shift();
-cities.unshift("New city");
+//     for (var j = 1; j <= 10; j++) {
+//         console.log("Table of", i, "-> ", i, " x ", j, " = ", i * j)
+//     }
 
-console.log("cities", cities)
+// }
 
 
+// var character = "H"
 
-// Array Methods
-// 1. push  -> add from rear/end of the array
-// 2. pop  -> remove from rear/end of array
-// 4. unshift ->  add from start/front of array
-// 3. shift  -> remove from start/front of array
-// 5. splice -> remove array from any position in array
-// 6. slice -> gives the new array slice
+var helloStr = "Hello User"
+var helloArr = ['H', 'e', 'l', 'l', 'o', ' ', 'U', 's', 'e', 'r']
 
-// ----------------- Searching Array methods ------------------------
-// indexOf
-// includes
-// concat = > 
-// 
+console.log(helloStr.charAt(9))
+var newStr = helloStr.concat("Me")
+helloStr.slice()
 
-var numbers1 = [1, 2, 54, 65]
-var numbers2 = [34, 76]
-console.log(numbers1)
-console.log(numbers2)
+console.log("helloStr", helloStr)
+console.log("newStr", newStr)
 
-var numbers = numbers1.indexOf(1) // spread operator
-console.log(numbers)
-
+console.log(helloArr.length)
 
