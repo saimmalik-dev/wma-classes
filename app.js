@@ -1,51 +1,109 @@
-// ARRAYS IN JS
-// Arrays are the combination of variables;
+// Strings in JS
 
 
-var numbers = [1, 2, 54, 65, 45, 50, 56, 78, 89]
-numbers.push(100)
+// var stringVar = "Hello User's"
+// stringVar
+// console.log(stringVar[10])
+// console.log(stringVar[10])
+// console.log(stringVar[10])
+// console.log(stringVar[10])
+// console.log(stringVar[10])
 
-// for (var i = 0; i < numbers.length; i++) {
-//     console.log(numbers[i]) // since i = 0, it will return numbers[0]
+// Template Literals
+// console.log("dfsdfsdf ${stringVar}")
+// console.log(`fdsdsfsdfsddsfsdsdfsd ${stringVar}`)
+
+// var arr = [1, 2, 35, 5, 789, 45]
+// console.log(arr.slice(3, 6))
+
+
+// most used string method in web dev split, lowercase  uppercase, substring, slicing ,   trim
+
+
+
+// STRING METHODS IN JS
+// 1. Slicing / Substring
+// var arr = [1, 2, 35, 5, 789, 45]
+// console.log(arr.slice(3, 6))
+// console.log(arr)
+
+// var str = "Apple, Banana, Kiwi";
+// console.log(str.substring(0, 5))
+// console.log(str)
+// console.log(str.length)
+
+
+
+// 2. Uppercase and Lowercase
+// var text1 = "Hello World!";
+// var text2 = text1.toUpperCase();
+// var text2 = text1.toLowerCase();
+// console.log(text1)
+// console.log(text2)
+
+
+// 3. Trim Method
+// var cnic = "41302-947865-1    "
+// var timmedCnic = cnic.trim()
+// console.log(timmedCnic.length)
+// if (timmedCnic.length > 15) {
+//     console.error("Invalid CNIC")
 // }
 
 
+// console.log(timmedCnic)
+// console.log(cnic.length)
 
-// for (let index = 0; index < numbers.length; index++) {
-//     console.log(numbers[index])
-//     if (numbers[index] > 50) {
-//         console.log("Array element value is greater than 50")
-//         break;
-//     }
+
+
+
+// 4. Padding Method
+// var text = "5";
+// var padded = text.padStart(5,"0");
+
+// console.log(padded)
+
+
+// 6. Repeat Method
+// var text = "Hello world!";
+// var result = text.repeat(5);
+
+// console.log(result)
+
+
+
+
+
+
+// 7. Split Method
+// var cnic = "41302-947865-1    "
+// var timmedCnic = cnic.trim()
+// console.log(timmedCnic.length)
+// if (timmedCnic.length > 15) {
+//     console.error("Invalid CNIC")
 // }
 
-// numbers.forEach(element => {
-//     console.log("using for each", element)
-// });
+// console.log(timmedCnic)
+// console.log(cnic.length)
+
+// var splittedString = timmedCnic.split("")
+// console.log("splittedString", splittedString)
+
+
+// 8. Searching Methods
+// var hello = "Please locate where 'locate' occurs!";
+
+// console.log(hello.search("where"))
+
+// console.log(hello.indexOf("where"))
+// console.log(hello[7])
+
+// 9. Replace/ Replace All
+
+var text = "Please visit Microsoft!, You should visit Microsoft";
+var newStr = text.replaceAll("Microsoft", "SMIT Hyderabad");
+console.log(newStr)
 
 
 
-// for (var i = 1; i <= 5; i++) {
-//     console.log(i);
-
-//     for (var j = 1; j <= 10; j++) {
-//         console.log("Table of", i, "-> ", i, " x ", j, " = ", i * j)
-//     }
-
-// }
-
-
-// var character = "H"
-
-var helloStr = "Hello User"
-var helloArr = ['H', 'e', 'l', 'l', 'o', ' ', 'U', 's', 'e', 'r']
-
-console.log(helloStr.charAt(9))
-var newStr = helloStr.concat("Me")
-helloStr.slice()
-
-console.log("helloStr", helloStr)
-console.log("newStr", newStr)
-
-console.log(helloArr.length)
-
+// var text2 = "Please visit Microsoft and Microsoft!";
