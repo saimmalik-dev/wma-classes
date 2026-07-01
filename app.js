@@ -1,109 +1,101 @@
-// Strings in JS
+// Numbers in JS
+var randomNumber = Math.random();
+console.log(randomNumber);
 
 
-// var stringVar = "Hello User's"
-// stringVar
-// console.log(stringVar[10])
-// console.log(stringVar[10])
-// console.log(stringVar[10])
-// console.log(stringVar[10])
-// console.log(stringVar[10])
-
-// Template Literals
-// console.log("dfsdfsdf ${stringVar}")
-// console.log(`fdsdsfsdfsddsfsdsdfsd ${stringVar}`)
-
-// var arr = [1, 2, 35, 5, 789, 45]
-// console.log(arr.slice(3, 6))
+var num = 4.100000;
+console.log(Math.ceil(num));
 
 
-// most used string method in web dev split, lowercase  uppercase, substring, slicing ,   trim
+// var currentAge = prompt("Enter your age.");
+// console.log(typeof currentAge);
+// var integarVal = parseInt(currentAge)
+// console.log("integarVal", integarVal);
 
+// var floatVal = parseFloat(currentAge)
+// console.log("floatVal", floatVal);
 
-
-// STRING METHODS IN JS
-// 1. Slicing / Substring
-// var arr = [1, 2, 35, 5, 789, 45]
-// console.log(arr.slice(3, 6))
-// console.log(arr)
-
-// var str = "Apple, Banana, Kiwi";
-// console.log(str.substring(0, 5))
-// console.log(str)
-// console.log(str.length)
+// var incrementedAge = parseInt(currentAge) + 1;
+// console.log(incrementedAge);
 
 
 
-// 2. Uppercase and Lowercase
-// var text1 = "Hello World!";
-// var text2 = text1.toUpperCase();
-// var text2 = text1.toLowerCase();
-// console.log(text1)
-// console.log(text2)
+
+// var percentage = prompt("Enter your percentage")
+// var parsedVal = parseFloat(percentage)
+// console.log("parsedVal", parsedVal);
+
+// var prettyPercentage = parsedVal.toFixed(2);
+
+// console.log(prettyPercentage);
 
 
-// 3. Trim Method
-// var cnic = "41302-947865-1    "
-// var timmedCnic = cnic.trim()
-// console.log(timmedCnic.length)
-// if (timmedCnic.length > 15) {
-//     console.error("Invalid CNIC")
+// FUNCTIONS IN JS
+
+
+var num1 = 3
+var num2 = 5;
+var sum = num1 + num2;
+
+// Some block of code
+
+
+
+var num3 = 45;
+var num4 = 6
+var sum1 = num3 + num4;
+
+
+
+
+// Some block of code
+
+var num3 = 45;
+var num4 = 6
+var sum1 = num3 + num4;
+
+
+
+
+
+
+
+// SYNTAX: OF FUNCTION IN JS
+// function function_name ()  {  
+// body of the function
 // }
 
 
-// console.log(timmedCnic)
-// console.log(cnic.length)
+// Calling a function
+// function_name();
 
 
 
 
-// 4. Padding Method
-// var text = "5";
-// var padded = text.padStart(5,"0");
+function add(num1, num2) {
 
-// console.log(padded)
+    var sum = num1 + num2;
 
 
-// 6. Repeat Method
-// var text = "Hello world!";
-// var result = text.repeat(5);
+}
 
-// console.log(result)
 
+add(1, 5)
 
 
 
 
 
-// 7. Split Method
-// var cnic = "41302-947865-1    "
-// var timmedCnic = cnic.trim()
-// console.log(timmedCnic.length)
-// if (timmedCnic.length > 15) {
-//     console.error("Invalid CNIC")
-// }
-
-// console.log(timmedCnic)
-// console.log(cnic.length)
-
-// var splittedString = timmedCnic.split("")
-// console.log("splittedString", splittedString)
 
 
-// 8. Searching Methods
-// var hello = "Please locate where 'locate' occurs!";
-
-// console.log(hello.search("where"))
-
-// console.log(hello.indexOf("where"))
-// console.log(hello[7])
-
-// 9. Replace/ Replace All
-
-var text = "Please visit Microsoft!, You should visit Microsoft";
-var newStr = text.replaceAll("Microsoft", "SMIT Hyderabad");
-console.log(newStr)
+add(4, 5)
 
 
+function greetUser(name) {
+    alert("Hello " + name)
+}
 
-// var text2 = "Please visit Microsoft and Microsoft!";
+
+greetUser('Ali')
+greetUser('Asad')
+// greetUser('Saim')
