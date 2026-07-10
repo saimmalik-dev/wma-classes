@@ -1,71 +1,41 @@
-// OOP IN JAVASCRIPT: Class #2
+// EVENTS IN JS
 
-class Vehicle {
-    constructor(model, color, wheelCount) { // used to create and initialize an object created with a class.
-        this.model = model;
-        this.color = color;
-        this.wheelCount = wheelCount;
+function loginFunc(email, password) {
+    console.log("--email--", email);  // test@123.com
+    console.log("--password--", password); // undefined
+    console.log("--!!email--", !!email); // true
+    console.log("--!!password--", !!password); // false
+
+    console.log("!email", !email);  // false
+    console.log("!password", !password); //  true
+
+
+
+    if (!email || !password) {
+        // else if (!email || !password) {
+        alert("Enter both email and password")
+        return "Enter both email and password";
     }
+    console.log("Login Function called");
+    console.log("email", email);
+    console.log("password", password);
+    console.log("Login Success!");
 
-    // method
-    startVehicle(iginition = false) {
-        if (iginition === false) {
-            console.log("First ON the switch");
-            return;
-        }
-        console.log("Starting the vehicle.....");
-        console.log("Vehicle has started");
-    }
+
 }
 
 
 
-var car = new Vehicle("Corolla", "Black", 4);
-console.log("car", car)
-var isKeyOn = false;
-car.startVehicle(isKeyOn);
-// var bike = new Vehicle("Honda", "Black", 2);
-// console.log("bike", bike)
+var btn = document.getElementsByName("button")
+console.log("btn", btn); // HTMLCollection(1) [button]
 
 
 
-
-
-
-var person = {
-    // key: value
-    name: "Asad",
-    age: 23,
-    'first-namee': 23,
-    // nested object
-    innerObj: {},
-}
-// console.log(person['first-namee'])
-// console.log(person['age'])
-
-// FOR-in Loop,  used to get object keys
-for (i in person) {
-    console.log("keys", i);
-}
-
-
-var carObj = Object.keys(car)
-var carObjVal = Object.values(car)
-console.log(carObj);
-console.log(carObjVal);
-
-
-
-// var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// for (var value of array) {
-//     console.log("value", value);
-// }
-
-
-// for (var i = 0; i <= array.length; i++) {
-//     console.log("value", array[i]);
-// }
-
-
-
-
+var date = new Date();
+// var day = date.getDay();;
+console.log("date", date.toDateString());
+console.log("date", date.toTimeString());
+console.log("date", date.toLocaleTimeString());
+console.log("date", date.toLocaleDateString());
+// console.log("day", day);
+// console.log("hours", date.getISODate());
