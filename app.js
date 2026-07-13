@@ -1,41 +1,61 @@
-// EVENTS IN JS
-
-function loginFunc(email, password) {
-    console.log("--email--", email);  // test@123.com
-    console.log("--password--", password); // undefined
-    console.log("--!!email--", !!email); // true
-    console.log("--!!password--", !!password); // false
-
-    console.log("!email", !email);  // false
-    console.log("!password", !password); //  true
+// EVENTS IN JS #2
 
 
+console.log(document.getElementsByClassName('heading'));
 
-    if (!email || !password) {
-        // else if (!email || !password) {
-        alert("Enter both email and password")
-        return "Enter both email and password";
-    }
-    console.log("Login Function called");
-    console.log("email", email);
-    console.log("password", password);
-    console.log("Login Success!");
+// Event Listeners
+var btn = document.getElementById('btn');
+console.log(btn)
 
+btn.addEventListener('click', function () {
+    alert("Button clicked")
+})
 
-}
+btn.addEventListener('dblclick', function () {
+    alert("Button clicked")
+})
+
+btn.addEventListener('scroll', function () {
+    alert("Button clicked")
+})
 
 
 
-var btn = document.getElementsByName("button")
-console.log("btn", btn); // HTMLCollection(1) [button]
+// Selecting elements in JS
+// We can select elements in JS using the following methods:
+// 1. getElementById()
+// 2. getElementsByClassName()
+// 3. getElementsByTagName()
+// 4. querySelector()
+// 5. querySelectorAll()
+
+
+var btn = document.getElementById('btn');
+console.log(btn)
 
 
 
-var date = new Date();
-// var day = date.getDay();;
-console.log("date", date.toDateString());
-console.log("date", date.toTimeString());
-console.log("date", date.toLocaleTimeString());
-console.log("date", date.toLocaleDateString());
-// console.log("day", day);
-// console.log("hours", date.getISODate());
+var heading= document.getElementsByClassName('heading');
+
+console.log(heading);
+heading[0].innerText = "This is heading 1"
+
+
+// var myPara1 = document.querySelector(".btn");
+// myPara1.innerText = 'Hello text'
+// console.log(myPara1);
+
+
+
+
+// var myPara = document.querySelectorAll(".heading");
+// console.log(myPara);
+
+
+
+
+
+
+
+
+
