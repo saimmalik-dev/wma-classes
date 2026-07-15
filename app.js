@@ -1,61 +1,98 @@
-// EVENTS IN JS #2
+// EVENTS IN JS #3 (Revision)
 
 
-console.log(document.getElementsByClassName('heading'));
+// console.log(document.getElementsByClassName('heading'));
 
 // Event Listeners
-var btn = document.getElementById('btn');
+var btn = document.getElementById('btn')
 console.log(btn)
+// 2 .DOM Property Handlers
+// btn.onclick = () => {
+//     alert("Button clicked!");
+// };
 
-btn.addEventListener('click', function () {
-    alert("Button clicked")
+
+// 3. addEventListener() (Preferred)
+// btn.addEventListener('click', function () {
+//     alert("Button clicked")
+// })
+
+
+// OnKeyDown event -> trigger when the key is pressed
+var counter = 0
+btn.addEventListener("keydown", function (event) {
+    console.log("Key is down");
+    console.log("Key is down", event);
+    console.log("Key is down", event.key);
+    if(event.key === "Enter"){
+        // login()
+    }
+    ++counter
+    btn.innerText = "Key is down" + counter
+
 })
 
-btn.addEventListener('dblclick', function () {
-    alert("Button clicked")
+// OnKeyUp event -> trigger when the key is released
+btn.addEventListener("keyup", function () {
+    alert("Key is released!")
+    // console.log("Key is down");
+    // ++counter
+    // btn.innerText = "Key is down" + counter 
+
 })
 
-btn.addEventListener('scroll', function () {
-    alert("Button clicked")
+// onFocus event -> trigger when the element is focused
+btn.addEventListener("focus", function () {
+    // console.log("Key is down");
+    btn.style.backgroundColor = "red";
+
+})
+
+
+// onBlur event -> trigger when the element loses focus
+btn.addEventListener("blur", function () {
+    // console.log("Key is down");
+    btn.style.backgroundColor = "blue";
+    btn.style.color = "white";
+
 })
 
 
 
-// Selecting elements in JS
-// We can select elements in JS using the following methods:
-// 1. getElementById()
-// 2. getElementsByClassName()
-// 3. getElementsByTagName()
-// 4. querySelector()
-// 5. querySelectorAll()
+
+// INPUT event -> trigger on every key stroke/press
+var inputElem = document.getElementById("input")
+console.log(inputElem);
+
+inputElem.addEventListener("input", function (e) {
+    // console.log(e);
+    // console.log(e.target);
+    console.log(e.target.value);
 
 
-var btn = document.getElementById('btn');
-console.log(btn)
+})
+
+// OnChange -> waits until the user finishes interacting. and removed focus
+var inputElem = document.getElementById("input")
+console.log(inputElem);
+
+inputElem.addEventListener("change", function (e) {
+    console.log("change event:",e.target.value);
+})
 
 
+inputElem.addEventListener("focus", function () {
+    // console.log("Key is down");
+    inputElem.style.backgroundColor = "red";
 
-var heading= document.getElementsByClassName('heading');
-
-console.log(heading);
-heading[0].innerText = "This is heading 1"
-
-
-// var myPara1 = document.querySelector(".btn");
-// myPara1.innerText = 'Hello text'
-// console.log(myPara1);
+})
 
 
+// onBlur event -> trigger when the element loses focus
+inputElem.addEventListener("blur", function () {
+    // console.log("Key is down");
+    inputElem.style.backgroundColor = "blue";
+    inputElem.style.color = "white";
 
-
-// var myPara = document.querySelectorAll(".heading");
-// console.log(myPara);
-
-
-
-
-
-
-
-
+})
 
