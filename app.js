@@ -1,98 +1,82 @@
-// EVENTS IN JS #3 (Revision)
+// EVENTS IN JS #4 (Form Events)
 
 
-// console.log(document.getElementsByClassName('heading'));
+var inpName = document.getElementById("name");
+inpName.addEventListener("input", function (event) {
+    console.log("input event is triggered:", event.target.value)
+}
 
-// Event Listeners
-var btn = document.getElementById('btn')
-console.log(btn)
-// 2 .DOM Property Handlers
-// btn.onclick = () => {
-//     alert("Button clicked!");
-// };
+) // accept two parameters, first is event name and second is function for that event. 
 
 
-// 3. addEventListener() (Preferred)
-// btn.addEventListener('click', function () {
-//     alert("Button clicked")
-// })
+
+var inpName = document.getElementById("name");
+inpName.addEventListener("change", function (event) {
+    console.log("onchage event is triggered:", event.target.value)
+})
 
 
-// OnKeyDown event -> trigger when the key is pressed
-var counter = 0
-btn.addEventListener("keydown", function (event) {
-    console.log("Key is down");
-    console.log("Key is down", event);
-    console.log("Key is down", event.key);
-    if(event.key === "Enter"){
-        // login()
+
+
+
+
+
+
+
+
+
+
+
+
+var selectCountry = document.getElementById("country");
+
+selectCountry.addEventListener("change", function (event) {
+    console.log("onchange event is triggered:", event.target)
+    console.log("onchange event is triggered:", event.target.value)
+
+})
+
+
+
+var myForm = document.getElementById("form");
+myForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+
+
+    console.log("------- onsubmit event is triggered --------")
+    if (selectCountry.value == "") {
+        alert("Please select a country!");
+        return;
     }
-    ++counter
-    btn.innerText = "Key is down" + counter
 
-})
-
-// OnKeyUp event -> trigger when the key is released
-btn.addEventListener("keyup", function () {
-    alert("Key is released!")
-    // console.log("Key is down");
-    // ++counter
-    // btn.innerText = "Key is down" + counter 
-
-})
-
-// onFocus event -> trigger when the element is focused
-btn.addEventListener("focus", function () {
-    // console.log("Key is down");
-    btn.style.backgroundColor = "red";
-
-})
+    console.log("select country:", selectCountry.value)
+    console.log("inpName:", inpName.value)
 
 
-// onBlur event -> trigger when the element loses focus
-btn.addEventListener("blur", function () {
-    // console.log("Key is down");
-    btn.style.backgroundColor = "blue";
-    btn.style.color = "white";
+    var payload = {
+        name: inpName.value,
+        country: selectCountry.value
+    }
+
+
+    console.log("payload:", payload)
 
 })
 
 
 
+myForm.addEventListener('reset', function (event) {
+    event.preventDefault();
 
-// INPUT event -> trigger on every key stroke/press
-var inputElem = document.getElementById("input")
-console.log(inputElem);
-
-inputElem.addEventListener("input", function (e) {
-    // console.log(e);
-    // console.log(e.target);
-    console.log(e.target.value);
-
-
-})
-
-// OnChange -> waits until the user finishes interacting. and removed focus
-var inputElem = document.getElementById("input")
-console.log(inputElem);
-
-inputElem.addEventListener("change", function (e) {
-    console.log("change event:",e.target.value);
-})
+    alert("Form has been reset!");
+    console.log("------- reset event is triggered --------")
+    // console.log("select country:", selectCountry.value)
+    selectCountry.value = ""
+    inpName.value = ""
+    // console.log("inpName:", inpName.value)
 
 
-inputElem.addEventListener("focus", function () {
-    // console.log("Key is down");
-    inputElem.style.backgroundColor = "red";
-
-})
-
-
-// onBlur event -> trigger when the element loses focus
-inputElem.addEventListener("blur", function () {
-    // console.log("Key is down");
-    inputElem.style.backgroundColor = "blue";
-    inputElem.style.color = "white";
 
 })
 
