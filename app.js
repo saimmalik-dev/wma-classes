@@ -1,62 +1,86 @@
-// EVENTS IN JS #4 (Form Events)
+
+// EVENTS IN JS #5 (Form Validations)
+
+var radios = document.getElementsByName("gender")
+console.log("radios", radios);
+// console.log("radios", radios[0].value);
+// console.log("radios", radios[0].value);
 
 
-var inpName = document.getElementById("name");
-inpName.addEventListener("input", function (event) {
-    console.log("input event is triggered:", event.target.value)
+var eduChecks = document.getElementsByName("education")
+// console.log(eduChecks);
+
+
+// for (let i = 0; i < eduChecks.length; i++) {
+//     // if (i.checked) {
+//     console.log("i.checked", i.check);
+
+//     // }
+// }
+
+
+function checkRadio() {
+
+    var radioChecked = false;
+    var selectedGender = null;
+
+    for (let i = 0; i < radios.length; i++) {
+        // if (i.checked) {
+        console.log("i.checked", radios[i]);
+        console.log("i.checked", radios[i].value);
+        console.log("i.checked", radios[i].checked);
+
+        if (radios[i].checked == true) {
+            radioChecked = true;
+            selectedGender = radios[i]
+            return selectedGender;
+        }
+
+    }
+
+    if (!radioChecked) {
+        alert("Please select gender")
+        return null;
+    }
+
+
+
 }
-
-) // accept two parameters, first is event name and second is function for that event. 
-
-
-
-var inpName = document.getElementById("name");
-inpName.addEventListener("change", function (event) {
-    console.log("onchage event is triggered:", event.target.value)
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var selectCountry = document.getElementById("country");
-
-selectCountry.addEventListener("change", function (event) {
-    console.log("onchange event is triggered:", event.target)
-    console.log("onchange event is triggered:", event.target.value)
-
-})
-
 
 
 var myForm = document.getElementById("form");
 myForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
-
-
     console.log("------- onsubmit event is triggered --------")
-    if (selectCountry.value == "") {
-        alert("Please select a country!");
+
+    var gender = checkRadio();
+    console.log("|gender", gender);
+    // console.log("|gender", gender.value);
+
+    // CHECKBOX VALIDATION
+    var eduCheck = false;
+    var eduCheckArr = [];
+    for (let i = 0; i < eduChecks.length; i++) {
+        console.log("eduChecks[i]", eduChecks[i]);
+
+        if (eduChecks[i].checked == true) {
+            eduCheck = true;
+            eduCheckArr.push(eduChecks[i].value)
+        }
+    }
+    if (!eduCheck) {
+        alert("Please select education")
         return;
     }
+    console.log(eduCheckArr);
 
-    console.log("select country:", selectCountry.value)
-    console.log("inpName:", inpName.value)
+
+
 
 
     var payload = {
-        name: inpName.value,
-        country: selectCountry.value
+        gender: gender.value,
     }
 
 
@@ -66,17 +90,16 @@ myForm.addEventListener('submit', function (event) {
 
 
 
-myForm.addEventListener('reset', function (event) {
-    event.preventDefault();
+// myForm.addEventListener('reset', function (event) {
+//     event.preventDefault();
 
-    alert("Form has been reset!");
-    console.log("------- reset event is triggered --------")
-    // console.log("select country:", selectCountry.value)
-    selectCountry.value = ""
-    inpName.value = ""
-    // console.log("inpName:", inpName.value)
+//     alert("Form has been reset!");
+//     console.log("------- reset event is triggered --------")
+//     // console.log("select country:", selectCountry.value)
+//     selectCountry.value = ""
+//     inpName.value = ""
+//     // console.log("inpName:", inpName.value)
 
 
 
-})
-
+// })
