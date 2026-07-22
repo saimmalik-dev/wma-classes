@@ -1,52 +1,57 @@
+let nameInp = document.getElementById("name")
+let radios = document.getElementsByName("gender")
+// console.log("radios", radios);
+let eduChecks = document.getElementsByName("education")
+// let arr = [3, 5, 7, 5, 7]
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
 
-// EVENTS IN JS #5 (Form Validations)
-
-var radios = document.getElementsByName("gender")
-console.log("radios", radios);
-// console.log("radios", radios[0].value);
-// console.log("radios", radios[0].value);
-
-
-var eduChecks = document.getElementsByName("education")
-// console.log(eduChecks);
-
-
-// for (let i = 0; i < eduChecks.length; i++) {
-//     // if (i.checked) {
-//     console.log("i.checked", i.check);
-
-//     // }
 // }
-
 
 function checkRadio() {
 
-    var radioChecked = false;
-    var selectedGender = null;
-
+    let selected = false;
+    let selectedVal = null;
     for (let i = 0; i < radios.length; i++) {
-        // if (i.checked) {
-        console.log("i.checked", radios[i]);
-        console.log("i.checked", radios[i].value);
-        console.log("i.checked", radios[i].checked);
+        // console.log("radio", radios[i]);
 
-        if (radios[i].checked == true) {
-            radioChecked = true;
-            selectedGender = radios[i]
-            return selectedGender;
+        if (radios[i].checked == true) { // jab user ne koi radio select krlia
+            // console.log("User selected a radio");
+            selected = true;
+            selectedVal = radios[i].value;
+            return selectedVal;
         }
-
     }
 
-    if (!radioChecked) {
-        alert("Please select gender")
-        return null;
+    if (selected == false) {
+        alert("Kuch select kr bhai")
     }
-
-
-
 }
 
+
+
+function checkBoxesValidation() {
+
+    let selected = false;
+    let selectedValues = [];
+    for (let i = 0; i < eduChecks.length; i++) {
+        // console.log("eduChecks", eduChecks[i]);
+        // console.log("eduChecks[i].checked", eduChecks[i].checked);
+
+        if (eduChecks[i].checked == true) { // jab user ne koi radio select krlia
+            // console.log("User selected a radio");
+            selected = true;
+            selectedValues.push(eduChecks[i].value);
+
+        }
+    }
+
+    if (selected == false) {
+        alert("Koi checkbox select kro bhai ")
+    }
+
+    return selectedValues;
+}
 
 var myForm = document.getElementById("form");
 myForm.addEventListener('submit', function (event) {
@@ -54,52 +59,32 @@ myForm.addEventListener('submit', function (event) {
 
     console.log("------- onsubmit event is triggered --------")
 
-    var gender = checkRadio();
-    console.log("|gender", gender);
-    // console.log("|gender", gender.value);
 
-    // CHECKBOX VALIDATION
-    var eduCheck = false;
-    var eduCheckArr = [];
-    for (let i = 0; i < eduChecks.length; i++) {
-        console.log("eduChecks[i]", eduChecks[i]);
-
-        if (eduChecks[i].checked == true) {
-            eduCheck = true;
-            eduCheckArr.push(eduChecks[i].value)
-        }
+    if (nameInp.value == "") {
+        alert("Enter your name")
+        return
     }
-    if (!eduCheck) {
-        alert("Please select education")
-        return;
-    }
-    console.log(eduCheckArr);
+    console.log("nameInp.value ", nameInp.value);
+
+
+    // if (nameInp.value == "") {
+    //     alert("Enter your name")
+    // }
+
+    // console.log("total radio", radios);
+
+    let gender = checkRadio();
+    console.log("gender", gender);
 
 
 
+    let selectedChecks = checkBoxesValidation();
+    console.log("selectedChecks", selectedChecks);
 
 
-    var payload = {
-        gender: gender.value,
-    }
 
-
-    console.log("payload:", payload)
 
 })
 
 
 
-// myForm.addEventListener('reset', function (event) {
-//     event.preventDefault();
-
-//     alert("Form has been reset!");
-//     console.log("------- reset event is triggered --------")
-//     // console.log("select country:", selectCountry.value)
-//     selectCountry.value = ""
-//     inpName.value = ""
-//     // console.log("inpName:", inpName.value)
-
-
-
-// })
