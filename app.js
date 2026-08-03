@@ -1,114 +1,57 @@
-// // console.log(document);
 
-// // ------------  EVENTS Capturing, Bubbling, & Delegation ----------------
 
-// document.getElementById("userCard")
-//     .addEventListener("click", function () { // user card event (parent)
-
-//         alert("Navigate to User Details Page");
-//         // window.location.href = "./detail.html"
-//     });
-
-// document.getElementById("emailBtn")
-//     .addEventListener("click", function (event) { // send email btn (child-1)
-//         event.stopPropagation();
-//         alert("Opening Email Client...");
-//     });
-
-// document.getElementById("callBtn")
-//     .addEventListener("click", function (event) { // make a call (child-2)
-//         event.stopPropagation();
-//         console.log("Calling User...");
-//     });
+// // getting the first child, last child, parent node, next sibling
+// console.log("list.firstChild", list.firstChild);
+// console.log("list.lastChild", list.lastChild);
+// console.log("list.parentNode", list.parentNode);
+// console.log("list.nextSibling", list.nextSibling);
 
 
 
-// let btnOn = document.getElementById("btnOn")
-// let btnOff = document.getElementById("btnOff")
-// let bulbImg = document.getElementById("bulb-img")
+// // GET, SET, HAS, REMOVE ATTRIBUTES
+// const natureImg = document.getElementById("nature-img")
+// console.log("natureImg", natureImg);
+// console.log("natureImg", natureImg.attributes);
+// console.log("natureImg", natureImg.hasAttribute("id"));
+// console.log("natureImg", natureImg.getAttribute("src"));
 
-// console.log("bulbImg", bulbImg);
-
-// btnOn.addEventListener("click", function () {
-//     bulbImg.src = "bulb-on.png"
-// })
-
-
-// btnOff.addEventListener("click", function () {
-//     bulbImg.src = "bulb-off.png"
-// })
-
-
-
-// // Event Delegation is optmized way to assign events
-// let list = document.getElementById("list")
-
-// console.log(list);
-
-// list.addEventListener("click", function (event) {
-//     console.log("event.target:", event.target);
-//     console.log("event.target:", event.target.innerText);
-//     // console.log(event.target);
-//     alert(event.target.innerText)
-
-// })
-
-
-// let operator = '**'
-// switch (operator) {
-//     case '+':
-//         a + b
-//         break;
-
-//     case '/':
-//         a / b
-
-//         break;
-
-//     case '*':
-//         a * b
-
-//         break;
-
-//     case '-':
-//         a - b
-
-//         break;
-
-
-//     default:
-//         break;
-// }
+// natureImg.setAttribute("src", "./event-propagation.png");
+// console.log("natureImg", natureImg.setAttribute("src", "./event-propagation.png"));
 
 
 
 
-let list = document.getElementById("list")
-console.log(list);
-let activeItem = true
-list.addEventListener("click", function (event) {
-    console.log("event.target:", event.target);
-    // console.log("event:", event);
-    // console.log(event.target);
-    console.log("list.children", list.children);
+// Creating the elements dynamically and appending them in the DOM
 
+const dynamicDiv = document.getElementById("dynamic-div")
 
-    if (activeItem == true) {
-        let liItems = list.children;
-        for (let i = 0; i < liItems.length; i++) {
-            liItems[i].className = ""
-        }
-        activeItem = false
+// STEP:1 Creating the elements dynamically
+const dynamicHeading = document.createElement("h2")
+const dynamicImg = document.createElement("img")
+const dynamicButton = document.createElement("button")
+
+dynamicHeading.innerText = "This is dynamic heading";
+dynamicImg.setAttribute("src", "./event-propagation.png");
+dynamicImg.setAttribute("height", "200px");
+dynamicButton.innerText = "Click Me";
+
+// STEP:2 Linking/Appending the created elements in the DOM
+// dynamicDiv.appendChild(dynamicHeading)
+// dynamicDiv.appendChild(dynamicImg)
+// dynamicDiv.appendChild(dynamicButton)
+
+const toggleBtn = document.getElementById("toggleBtn")
+let isVisible = false
+toggleBtn.addEventListener("click", function () {
+    if (isVisible == false) {
+        dynamicDiv.appendChild(dynamicHeading)
+        dynamicDiv.appendChild(dynamicImg)
+        dynamicDiv.appendChild(dynamicButton)
+        isVisible = true
+    } else {
+        dynamicDiv.removeChild(dynamicHeading)
+        dynamicDiv.removeChild(dynamicImg)
+        dynamicDiv.removeChild(dynamicButton)
+        isVisible = false
     }
-    console.log(list.children);
-
-
-
-    let liTag = event.target;
-    liTag.className = "active"
-    activeItem = true;
-
-
 })
-
-
