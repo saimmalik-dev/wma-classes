@@ -1,187 +1,129 @@
-// Creating the elements dynamically and appending them in the DOM
+const arrmap = [1, 2, 4, 5, [6, [7,], 8,], 9, 10];
+const doubled = arrmap.map((num) => {
 
-const dynamicDiv = document.getElementById("dynamic-div")
-
-// STEP:1 Creating the elements dynamically
-const dynamicHeading = document.createElement("h2")
-const dynamicImg = document.createElement("img")
-const dynamicButton = document.createElement("button")
-
-// STEP:2 Adding content to the elements
-dynamicHeading.innerText = "This is dynamic heading";
-dynamicImg.setAttribute("src", "./event-propagation.png");
-dynamicImg.setAttribute("height", "200px");
-dynamicButton.innerText = "Click Me";
-
-// STEP:3 Linking/Appending the created elements in the DOM
-// dynamicDiv.appendChild(dynamicHeading)
-// dynamicDiv.appendChild(dynamicImg)
-// dynamicDiv.appendChild(dynamicButton)
-
-dynamicDiv.appendChild(dynamicHeading)
-
-
-const toggleBtn = document.getElementById("toggleBtn")
-let isVisible = false
-toggleBtn.addEventListener("click", function () {
-    if (isVisible == false) {
-        dynamicDiv.appendChild(dynamicHeading)
-        dynamicDiv.appendChild(dynamicImg)
-        dynamicDiv.appendChild(dynamicButton)
-        isVisible = true
-    } else {
-        dynamicDiv.removeChild(dynamicHeading)
-        dynamicDiv.removeChild(dynamicImg)
-        dynamicDiv.removeChild(dynamicButton)
-        isVisible = false
-    }
+    return num * 2
 })
 
-
-
-function plus(num1, num2) { // explicit return 
-    return num1 + num2;
-}
-
-// const loginFunction = () => {
-// }
-
-// const plusArrow = (num1, num2) => num1 + num2; // implicit return
-// console.log("plusArrow", plusArrow(10, 20))
-
-
-let name = "Ali";
-
-const greetUser = () => {
-    console.log("name", this.name)
-    // num1 + num2;
-}
+console.log(arrmap)
+console.log(doubled)
 
 
 
+// What these methods does:
+// forEach → Do something
+// map → Change every item
+// filter → Select some items
+// find → Find one item
+// some → Is there at least one?
+// every → Do all satisfy this?
+// reduce → Turn many items into one result
 
-console.log("greetUser", greetUser())
+// The way it return the value is different for each method
+// map     → array → array
+// filter  → array → array
+// find    → array → one item
+// some    → array → true/false
+// every   → array → true/false
+// reduce  → array → one value
 
-console.log("plus function traditional", plus(10, 20))
+
+
+// Filter method
+const arr = [1, 2, 4, 5, 6, 9, 10];
+const filteredArr = arr.filter((num) => {
+    return num > 5
+})
+
+console.log(filteredArr)
+
+
+// Find method
+const arr2 = [1, 2, 4, 5, 6, 9, 10];
+const foundItem = arr2.find((num) => {
+    return num > 5
+})
+console.log("foundItem", foundItem)
 
 
 
-// FOREACH VS MAP 
+// Some method
+const std = [30, 23, 20, 21, 1, 2, 40];
+const isSome = std.some((num) => {
+    return num > 33
+})
+console.log("Some method:", isSome)
 
-const data = [
-    {
-        category: "men's clothing",
-        description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        id: 1,
-        image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-        price: 109.95,
-        rating: { rate: 3.9, count: 120 },
-        title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-    },
-    {
-        category: "men's clothing",
-        description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-        id: 2,
-        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
-        price: 22.3,
-        rating: { rate: 4.1, count: 259 },
-        title: "Mens Casual Premium Slim Fit T-Shirts"
-    },
-        {
-        category: "men's clothing",
-        description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        id: 1,
-        image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-        price: 109.95,
-        rating: { rate: 3.9, count: 120 },
-        title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-    },
-    {
-        category: "men's clothing",
-        description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-        id: 2,
-        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
-        price: 22.3,
-        rating: { rate: 4.1, count: 259 },
-        title: "Mens Casual Premium Slim Fit T-Shirts"
-    },
 
+// Every Method
+// const std1 = [30, 23, 20, 21, 1, 2, 40];
+const std1 = [30, 23, 20, 21, 1, 2, 40];
+const everyMethod = std1.every((num) => {
+    return num > 18
+})
+console.log("Every method:", everyMethod)
+
+
+// // Reduce Method
+// const itemsPrice = [30, 23];
+// const reduceMethod = itemsPrice.reduce((total, curr) => {
+//     return total + curr
+// }, 0)
+
+// console.log("Reduce method:", reduceMethod)
+
+
+
+
+// Shallow VS Deep Copy
+const obj = { rating: { count: 4.5 } }
+console.log(obj.rating.count)
+
+
+
+const users = [
+    { name: "John", age: 30 },
+    { name: "Jane", age: 25 },
+    { name: "Bob", age: 35 }
 ]
 
-// let filteredData = data.forEach(
-//     (item) => {
-//         console.log("item", item)
-//         return item;
-//     }
-// ) // forEach does not return a value or a new array, it returns undefined
+const shallowCopy = users.map((user) => {
+    return structuredClone(user)
+});
+// console.log("users", users)
+// console.log("shallow copy", shallowCopy)
 
-const productList = document.getElementById("product-list")
-
+shallowCopy[0].age = 40;
 
 
-
-
-// let filteredData = data.map(
-
-
-for (let i = 0; i < data.length; i++) {
-    let item = data[i];
-}
-
-
-const productCards = data.map(
-    (item, index) => {
-
-        const productCard = document.createElement("div")
-        const productImg = document.createElement("img")
-        const productTitle = document.createElement("h1")
-        const productDesc = document.createElement("p")
-        const productBtn = document.createElement("button")
-
-        productCard.classList.add("productCard")
-        productImg.setAttribute("height", "200px")
-        productImg.setAttribute("src", item.image)
-        productTitle.innerText = item.title + index;
-        productDesc.innerText = item.description + index;
-        productBtn.innerText = "Order Now"
-
-        // console.log("item", item)
-        // let newItem = {
-        //     ...item,
-        //     name: item['title']
-        // }
-
-        productCard.appendChild(productImg)
-        productCard.appendChild(productTitle)
-        productCard.appendChild(productDesc)
-        productCard.appendChild(productBtn)
-
-        //  Add the created productCard to the productList container in the DOM
-        productList.appendChild(productCard)
+console.log("original user object", users)
+console.log("shallow copy after change", shallowCopy)
 
 
 
-        // return newItem;
-    }
-) // map returns a new array with the results of calling a function for every array element
-console.log("productCards", productCards);
+// const deepCopy = users.map((user) => {
+//     return structuredClone(user)
+// });
+// console.log("users", users)
+// console.log("deepCopy copy", deepCopy)
+
+// deepCopy[0].age = 40;
+
+// console.log("users", users)
+// console.log("deepCopy copy", deepCopy)
 
 
 
-// console.log("original data:", data)
-// console.log("filteredData", filteredData)
+// Reduce Method
+const items = [1000, 2300, 180]
+// let sum = 0
+// for (let i = 0; i < items.length; i++) {
+//     // console.log();
+//     sum += items[i];
+// }
+// console.log(sum)
 
 
-
-
-// FOREACH VS MAP
-// ForEach: does not return a value or a new array, it returns undefined.
-// It is used for just to show the array items.
-
-// Map:
-// 1. returns a new array.
-// can change the values or data of the array items and return a new array with the modified values.
-
-
-
-
+const total = items.reduce((sum, currentValue) => {
+    return sum + currentValue
+})
+console.log("total", total);
