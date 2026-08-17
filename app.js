@@ -1,129 +1,103 @@
-const arrmap = [1, 2, 4, 5, [6, [7,], 8,], 9, 10];
-const doubled = arrmap.map((num) => {
+// // Classes & Objects
+// class Student {
+//     constructor(name, age, grade) {
+//         this.name = name;
+//         this.age = age;
+//         this.grade = grade;
+//     }
 
-    return num * 2
-})
-
-console.log(arrmap)
-console.log(doubled)
-
-
-
-// What these methods does:
-// forEach → Do something
-// map → Change every item
-// filter → Select some items
-// find → Find one item
-// some → Is there at least one?
-// every → Do all satisfy this?
-// reduce → Turn many items into one result
-
-// The way it return the value is different for each method
-// map     → array → array
-// filter  → array → array
-// find    → array → one item
-// some    → array → true/false
-// every   → array → true/false
-// reduce  → array → one value
-
-
-
-// Filter method
-const arr = [1, 2, 4, 5, 6, 9, 10];
-const filteredArr = arr.filter((num) => {
-    return num > 5
-})
-
-console.log(filteredArr)
-
-
-// Find method
-const arr2 = [1, 2, 4, 5, 6, 9, 10];
-const foundItem = arr2.find((num) => {
-    return num > 5
-})
-console.log("foundItem", foundItem)
-
-
-
-// Some method
-const std = [30, 23, 20, 21, 1, 2, 40];
-const isSome = std.some((num) => {
-    return num > 33
-})
-console.log("Some method:", isSome)
-
-
-// Every Method
-// const std1 = [30, 23, 20, 21, 1, 2, 40];
-const std1 = [30, 23, 20, 21, 1, 2, 40];
-const everyMethod = std1.every((num) => {
-    return num > 18
-})
-console.log("Every method:", everyMethod)
-
-
-// // Reduce Method
-// const itemsPrice = [30, 23];
-// const reduceMethod = itemsPrice.reduce((total, curr) => {
-//     return total + curr
-// }, 0)
-
-// console.log("Reduce method:", reduceMethod)
-
-
-
-
-// Shallow VS Deep Copy
-const obj = { rating: { count: 4.5 } }
-console.log(obj.rating.count)
-
-
-
-const users = [
-    { name: "John", age: 30 },
-    { name: "Jane", age: 25 },
-    { name: "Bob", age: 35 }
-]
-
-const shallowCopy = users.map((user) => {
-    return structuredClone(user)
-});
-// console.log("users", users)
-// console.log("shallow copy", shallowCopy)
-
-shallowCopy[0].age = 40;
-
-
-console.log("original user object", users)
-console.log("shallow copy after change", shallowCopy)
-
-
-
-// const deepCopy = users.map((user) => {
-//     return structuredClone(user)
-// });
-// console.log("users", users)
-// console.log("deepCopy copy", deepCopy)
-
-// deepCopy[0].age = 40;
-
-// console.log("users", users)
-// console.log("deepCopy copy", deepCopy)
-
-
-
-// Reduce Method
-const items = [1000, 2300, 180]
-// let sum = 0
-// for (let i = 0; i < items.length; i++) {
-//     // console.log();
-//     sum += items[i];
+//     // method
+//     getStudentDetails() {
+//         return "Name: " + this.name + ", Age: " + this.age + ", Grade: " + this.grade;
+//     }
 // }
-// console.log(sum)
+
+// const std1 = new Student("John", 20, "A");
+// console.log("std1", std1.getStudentDetails()) // method call
+// // const std1 = new Student("John", 20, "A");
 
 
-const total = items.reduce((sum, currentValue) => {
-    return sum + currentValue
-})
-console.log("total", total);
+// // Access object properties
+// // 1. dot notation: objectName.propertyName
+// // 2. bracket notation: objectName['propertyName']
+// const obj = {
+//     // key: value,
+//     name: "ali",
+//     age: 23,
+//     'city-address': "Karachi",
+// }
+
+// console.log("obj", obj['city-address'])
+// console.log("obj", obj['age'])
+
+
+
+// let plan1Name = "basic";
+// let plan1deviceSupport = 1;
+// let plan1videoQuality = 720;
+// let plan2Name = "standard";
+// let plan2deviceSupport = 2;
+// let plan2videoQuality = 1080;
+// let plan3Name = "premium";
+// let plan3deviceSupport = 4;
+// let plan3videoQuality = 2160;
+
+
+// plan2deviceSupport = 5;
+
+
+function calculateDiscount(price, discountPercentage, validDate) {
+    let date = new Date()
+    let currentDate = date.getDate()
+    if (currentDate < validDate) {
+        let discountedPrice = price * discountPercentage
+        return discountedPrice
+    }
+    return price
+}
+
+let obj = {
+    name: "basic",
+    deviceSupport: 1,
+    videoQuality: 720,
+    price: 1000,
+    discountPercentage: 0.14,
+    validDate: 14,
+    // discountCalculate: function (price, disco) {
+    discountCalculate: function (price, discountPercentage, validDate) {
+        let date = new Date()
+        let currentDate = date.getDate()
+        if (currentDate < validDate) {
+            let discountedPrice = price * discountPercentage // 140
+            return price - discountedPrice // 1000-140
+        }
+        return price
+    }
+}
+
+obj.oldVideoQuality = 720; // add property in object if does not exist, 
+obj.videoQuality = 1080; // otherwise update the value of existing property
+console.log(obj);
+
+console.log(obj.discountCalculate(obj.price, obj.discountPercentage, obj.validDate));
+
+
+
+
+let str = 'I am a MERN Stack developer';
+let totalWords = str.split(" ")
+console.log(totalWords);
+
+let capitalizeArr = []
+for (let i = 0; i < totalWords.length; i++) {
+    let capitalize = totalWords[i].charAt(0).toUpperCase()
+    let joinWord = capitalize + totalWords[i].slice(1)
+    console.log(joinWord);
+
+    capitalizeArr.push(joinWord)
+}
+console.log(capitalizeArr);
+
+
+
+
