@@ -1,135 +1,103 @@
-// Gloabl Execution Context
+// // Scopes, Lexical Scope, Scope Chaining, TDZ and hoisting.
 
-// console.log("Hello world");
-
-// var username;
-// console.log("username:", username); // ""
-
-// function greet(name) {
-//     console.log("hello", name);
+// Global vs Local Scope
+// // let usernAME = "ALI" // global scope
+// if (4 < 5) {
+//    var usernAME = "ALI" // local scope
+//     console.log(usernAME);
 
 // }
-
-// username = "ali"
-// greet(username)
+// console.log(usernAME);
 
 
+// // Lexical Scope 
+// // Lexical scope means a function can access variables from the scope in which it was defined. The scope is determined by the code structure, not by where the function is called.
 
-// =============   var -> function scoped ============
-// var identifier is function scoped;
-// function checkAge() {
-//     var age = 30
-//     if (age < 18) {
-//         console.log("You  are teenager");
-
-//     } else {
-//         console.log("Your age is" + age);
+// function outer() {
+//     let userName = "Ahmed";
+//     function inner() {
+//         // let innervar = "no name"
+//         console.log(" innner function:", userName);
 //     }
-// }
-// console.log(age);
-// checkAge()
-
-// but var is not blocked-scope
-// var age = 15
-// if (age < 18) {
-//     console.log("You  are teenager");
-//     var ager = "teenager";
-// } else {
-//     console.log("Your age is" + age);
-// }
-// console.log("ager", ager);
 
 
-// ==================== let/const -> block scoped {} =================
-// function checkAge() {
-//     let age = 30
-//     if (age < 18) {
-//         console.log("You  are teenager");
-
-//     } else {
-//         console.log("Your age is" + age);
-//     }
-// }
-// console.log(age);
-// checkAge()
-
-// but let is  blocked-scope
-// let age = 15
-// if (age < 18) {
-//     console.log("You  are teenager");
-//     let ager = "teenager";
-// } else {
-//     console.log("Your age is" + age);
-// }
-// console.log("ager", ager);
-
-
-
-
-// console.log(userName); // undefined - Wait, what?
-// console.log(userAge);  // ReferenceError - Okay, now I'm confused
-
-// var userName = "Sarah";
-// let userAge = 25;
-
-
-
-
-
-
-
-
-
-
-// // Your code
-// console.log(greeting);    // What will this print?
-// console.log(calculate);   // And this?
-// console.log(userName);    // And this?
-
-// var greeting = "Hello";
-
-// function calculate(a, b) {
-//   return a + b;
+//     inner()
+//     console.log("outer function:", userName);
 // }
 
-// let userName = "Alex";
+// outer();
+// 
 
+//  ------------- Lexical Scope Example -------------------
+// let globalVar = "I am a global variable";
 
-// Your code
-// console.log(greeting);    // What will this print?
-// console.log(calculate);   // And this?
-// console.log(userName);    // And this?
+// function outerFunction() {
+//   let outerVar = "I am an outer variable";
 
-// var greeting = "Hello";
+//   function innerFunction() {
+//     let innerVar = "I am an inner variable";
+//     console.log(globalVar); // Found in the global scope
+//     console.log(outerVar); // Found in the outer function scope
+//     console.log(innerVar); // Found in the inner function scope
+//   }
 
-// function calculate(a, b) {
-//     return a + b;
+//   innerFunction();
 // }
 
-// let userName = "Alex";
+// outerFunction();
 
 
 
 
 
-function one() {
-    two()
 
-    console.log("Call #1");
+// // Hoisting: the process or mechanism of moving all variable, function, or class declarations to the top of the scope or "js file if global". It moves top conceptually not really.
+// console.log(x);
+
+// x = 5; // Assign 5 to x
+// var x; // Declare x
+// console.log(x);
+
+// // Hoisting function:
+// hoisting();
+
+// function hoisting() {
+//     console.log("THIS IS FUNCTION");
+
+// }
+
+
+// console.log(y);
+
+// y = 10; // Assign 10 to y
+// var y; // Declare y
+// console.log(y);
+
+
+// Temporal Dead Zone (TDZ)
+// TDZ a area where variable declared with let/const in placed temporary before initialization 
+// console.log(y);
+
+y = 10; // Assign 10 to y
+let y; // Declare y
+console.log(y);
+
+
+// console.log(username);
+// var username = "ali"
+
+// console.log(username);
+
+
+
+// console.log(letusername);
+// let letusername = "ali"
+
+// console.log(letusername);
+
+function demoTDZ() {
+  console.log(myLet); // ReferenceError
+  let myLet = 100;
+  console.log(myLet); // 100
 }
-function two() {
-    three()
-    console.log("Call #2");
-}
-
-function three() {
-    console.log("Call #3");
-}
-
-one()
-
-
-//
-// call #3
-// call #2
-// call #1
+demoTDZ();
