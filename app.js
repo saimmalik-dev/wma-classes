@@ -1,164 +1,150 @@
-// // Lexical Scope, this keyword, Regular and Arrow Functions, Desturcturing, Rest & Spread operator
+//  Desturcturing, Rest and Spread operator, Closures;
+//  Desturcturing:
+// const user = {
+//     name: "huzaifa",
+//     className: "12th",
+//     age: 18,
+//     userProfileImg: "User img",
 
-
-// // // Lexical Scope 
-// // Lexical scope means a function can access variables from the scope in which it was defined. The scope is determined by the code structure, not by where the function is called.
-
-// // Lexical scope means that variable accessibility is determined entirely by the physical position of the code at compile time, not where the function is executed.
-
-// // lexical scope mein kahan likha hai yeh matter krta hai. na k yeh k kahan pr call/execute hua.
-
-// // function outer() {
-
-// //   let userName = "Ahmed";
-// //   function inner() {
-// //     // let innervar = "no name"
-// //     console.log(" innner function:", userName);
-// //   }
-
-// //   inner()
-// //   console.log("outer function:", userName);
-// // }
-
-// // outer();
-
-// //  ------------- Lexical Scope Example -------------------
-// // let globalVar = "I am a global variable";
-
-// // function outerFunction() {
-// //   let outerVar = "I am an outer variable";
-
-// //   function innerFunction() {
-// //     let innerVar = "I am an inner variable";
-// //     console.log(globalVar); // Found in the global scope
-// //     console.log(outerVar); // Found in the outer function scope
-// //     console.log(innerVar); // Found in the inner function scope
-// //   }
-
-// //   innerFunction();
-// // }
-
-// // outerFunction();
-
-
-
-// // This keyword.
-// // Method invokation: this is determined by the owner object of that method.
-
-// const obj = {
-//   userName: "ali",
-//   // test: "ali",
-//   greet: function () {
-//     console.log("this", this);
-//     console.log('Hello: ' + this.userName);
-
-//     let user = "user";
-//     console.log("user", user);
-
-//   },
-//   arrowGreet: () => {
-//     console.log("Arrow fn",this);
-
-//     console.log(`Hello: ${this}`);
-
-//     // let user = "user";
-//     // console.log("user", user);
-
-//   }
 // }
-// obj.greet()
-// obj.arrowGreet()
+// const name = user.username
+// const class_name = user.className
+// console.log(class_name);
+
+// const age = user.age
+// const userProfileImg = user.userProfileImg
+// userProfileImg
+// user_profile_img
+
+// const { userProfileImg, className, age, name } = user;
+// console.log(userProfileImg, className, age, name);
 
 
-// // let name = "ali"
-// // alert("Hello " + name)
-
-
-
-
-// // var name = "asad"
-
-// // function userDetails() {
-
-// //   console.log(this);
-// //   console.log(this.name);
-// //   console.log("Here is a user details " + this.name);
-
-
-// // }
-
-// // userDetails()
-
-
-// // function fnName(a, b) {
-// //   return a + b
-// // }
-// // fnName(3, 4)
-
-// // const arrowFn = (a, b) => {
-// //   return a + b
-// // };
-// // console.log(arrowFn(3, 4))
+// // ARRAY Destructuing
+// const arr = [1, 2, 3];
+// // arr[0], arr[1]
+// const [i, j, k] = arr
+// console.log(i, j, k);
+// NOTE: in arraay destructuring value is returned according to the array indices (indexes)
 
 
 
 
-// // Function declaration vs Function expression
-// // Function Declaration
-// function fnName(a, b) {
-//   return a + b
+// Rest and Spread Operator (...)
+// Rest (collect)
+
+const arr = [1, 2, 3]
+const [i, ...remaining] = arr;
+console.log(remaining);
+
+
+
+const user = {
+    name: "huzaifa",
+    className: "12th",
+    age: 18,
+    userProfileImg: "User img",
+    role: "user"
+}
+
+const { role, ...remainingObj } = user;
+console.log("role", role);
+
+if (role == "user") {
+    console.log("goto user dashboard");
+}
+const loggedInUser = remainingObj;
+
+console.log("loggedinuser", loggedInUser);
+
+
+
+
+// Speard(expands)
+// const arr = [3, 4]
+// const arr2 = [1, 2, ...arr]
+// console.log("arr2 ", arr2);
+
+
+// const user = {
+//     name: "huzaifa",
+//     className: "12th",
+//     age: 18,
+//     userProfileImg: "User img",
 // }
-// fnName(3, 4)
-// // fnName function is not assigned to any variable;
 
-// // Function EXPRESSION
-// // if function declaration start with variable idenfier then it would be function expression.
-// const fnExpression = function (a, b) {
-//   return a + b
+// const objWithRole = {
+//     role: "user",
+//     ...user
 // }
-// fnExpression(3, 4)
+// console.log(objWithRole);
+// For simpler understanding you can say, 
+// rest is used on left side of variable 
+// spread is used on right side of variable 
 
 
 
-// // Arrow Function: 
-// // arrow functions are always in expression
-// const arrowFn = () => {
 
+
+// Closures
+// Why do we need closures?
+// Case 1: Create global coutner variable
+// let counter = 0; 
+// const add = () => {
+//     counter++;
+//     return counter;
+// }
+
+// console.log(counter); // 0
+// console.log(add()); // 1
+// console.log(add()); // 2
+// console.log(add()); // 1
+// // counter = 5
+// console.log(add()); // 3
+// console.log(add()); // 4
+// Issue we will be get: any other assignment or fn can update the counter. because counter is global variable
+
+// // Case 2: Create local counter variable
+// const add = () => {
+//     let counter = 0;
+//     counter++;
+//     return counter;
 // }
 
 
+// console.log(add()); // 1
+// console.log(add()); // 1
+// console.log(add()); // 1
 
-// greet(); // ReferenceError: Cannot access 'greet' before initialization
-
-// const greet = () => {
-//     console.log('Hello!');
-// };
-
+// Issue we will get: value will be same
 
 
+// Simple definition for understanding only -> a function that is returing another inner function;
+// Technical Definition -> a function that knows and access its outer function variables and data even after the outer function terminates (or stops execution) is known as closures.
+
+const counterFn = () => {
+    let counter = 0;
+    const incrementCounter = () => {
+        counter++;
+        return counter;
+    }
+    return incrementCounter
+}
+console.log("counterFn();", counterFn());
+
+const counter = counterFn();
+console.log("counter", counter());
+console.log("counter", counter());
+console.log("counter", counter());
+console.log("counter", counter());
 
 
+const counter2 = counterFn();
+console.log("counter2", counter2());
+console.log("counter2", counter2());
 
-
-// const obj = {
-//   objName: "ali",
-//   greet: function () {
-//     // console.log("this", this);
-//     console.log('Hello: ' + this.objName);
-//   },
-//   arrowGreet: () => {
-//     // console.log("Arrow fn",this);
-
-//     console.log(`Hello: ${this.objName}`);
-
-//   }
-// }
-// obj.greet()
-// obj.arrowGreet()
-
-
-
-
-// [1, 2, 3, 4, 5, 6] -> [4, 5, 6] -> [5, 6] -> 6
-
-// ['ali', 'asad','amir','hassan']
+let increment = document.getElementById("increment")
+let val = document.getElementById("val");
+increment.addEventListener("click", () => {
+    val.innerText = counter2();
+})
