@@ -1,150 +1,63 @@
-//  Desturcturing, Rest and Spread operator, Closures;
-//  Desturcturing:
-// const user = {
-//     name: "huzaifa",
-//     className: "12th",
-//     age: 18,
-//     userProfileImg: "User img",
-
-// }
-// const name = user.username
-// const class_name = user.className
-// console.log(class_name);
-
-// const age = user.age
-// const userProfileImg = user.userProfileImg
-// userProfileImg
-// user_profile_img
-
-// const { userProfileImg, className, age, name } = user;
-// console.log(userProfileImg, className, age, name);
+// First-class, Higher Order Function, CallBack & Asynchronous JS
 
 
-// // ARRAY Destructuing
-// const arr = [1, 2, 3];
-// // arr[0], arr[1]
-// const [i, j, k] = arr
-// console.log(i, j, k);
-// NOTE: in arraay destructuring value is returned according to the array indices (indexes)
+// Function Expression
+function add(num1, num2) {
+  return num1 + num2
+}
+const arrowFn = () => {
 
+}
+const addFunc = add;
+console.log(addFunc);
 
-
-
-// Rest and Spread Operator (...)
-// Rest (collect)
-
-const arr = [1, 2, 3]
-const [i, ...remaining] = arr;
-console.log(remaining);
-
-
-
-const user = {
-    name: "huzaifa",
-    className: "12th",
-    age: 18,
-    userProfileImg: "User img",
-    role: "user"
+// First Class Functions: function that can be treated as value.
+// Higher Order Functions: functions that can accept another function as arguement or return another function; 
+function sayHello() {// first class function
+  return "Hello, ";
 }
 
-const { role, ...remainingObj } = user;
-console.log("role", role);
 
-if (role == "user") {
-    console.log("goto user dashboard");
+function greeting(num1Param, name) { // higher order
+  console.log(num1Param() + name);
+  //   console.log(helloMessage() + name);
 }
-const loggedInUser = remainingObj;
-
-console.log("loggedinuser", loggedInUser);
-
-
+// Pass `sayHello` as an argument to `greeting` function
+greeting(sayHello, "JavaScript!"); // greeting(function, value);
+// Hello, JavaScript!
 
 
-// Speard(expands)
-// const arr = [3, 4]
-// const arr2 = [1, 2, ...arr]
-// console.log("arr2 ", arr2);
-
-
-// const user = {
-//     name: "huzaifa",
-//     className: "12th",
-//     age: 18,
-//     userProfileImg: "User img",
-// }
-
-// const objWithRole = {
-//     role: "user",
-//     ...user
-// }
-// console.log(objWithRole);
-// For simpler understanding you can say, 
-// rest is used on left side of variable 
-// spread is used on right side of variable 
+// Higher Order Functions Examples: map, filter, some, these all are HOFs. 
 
 
 
 
 
-// Closures
-// Why do we need closures?
-// Case 1: Create global coutner variable
-// let counter = 0; 
-// const add = () => {
-//     counter++;
-//     return counter;
-// }
-
-// console.log(counter); // 0
-// console.log(add()); // 1
-// console.log(add()); // 2
-// console.log(add()); // 1
-// // counter = 5
-// console.log(add()); // 3
-// console.log(add()); // 4
-// Issue we will be get: any other assignment or fn can update the counter. because counter is global variable
-
-// // Case 2: Create local counter variable
-// const add = () => {
-//     let counter = 0;
-//     counter++;
-//     return counter;
-// }
+const arr = [1, 2, 1, 3, 41, 10, 100]
+const filterArr = arr.filter((item) => item > 40)
+console.log(filterArr);
 
 
-// console.log(add()); // 1
-// console.log(add()); // 1
-// console.log(add()); // 1
-
-// Issue we will get: value will be same
 
 
-// Simple definition for understanding only -> a function that is returing another inner function;
-// Technical Definition -> a function that knows and access its outer function variables and data even after the outer function terminates (or stops execution) is known as closures.
 
-const counterFn = () => {
-    let counter = 0;
-    const incrementCounter = () => {
-        counter++;
-        return counter;
-    }
-    return incrementCounter
+
+
+
+console.log("Before Set timeout");
+
+const callback = () => {
+  console.log("Call Back function called after 2s");
+  
+  console.log("using Set time out ");
 }
-console.log("counterFn();", counterFn());
 
-const counter = counterFn();
-console.log("counter", counter());
-console.log("counter", counter());
-console.log("counter", counter());
-console.log("counter", counter());
+setTimeout(callback, 2000);
+
+console.log("After Set timeout");
 
 
-const counter2 = counterFn();
-console.log("counter2", counter2());
-console.log("counter2", counter2());
+// setInterval(() => {
+//   console.log("Set interval out called");
 
-let increment = document.getElementById("increment")
-let val = document.getElementById("val");
-increment.addEventListener("click", () => {
-    val.innerText = counter2();
-})
+// }, 2000);
