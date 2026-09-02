@@ -1,63 +1,95 @@
-// First-class, Higher Order Function, CallBack & Asynchronous JS
+
+// console.log("Before Set timeout");
+
+// const callback = () => {
+//   console.log("Call Back function called after 2s");
+
+//   console.log("using Set time out ");
+// }
+
+// setTimeout(callback, 2000);
+
+// console.log("After Set timeout");
 
 
-// Function Expression
-function add(num1, num2) {
-  return num1 + num2
+// // setInterval(() => {
+// //   console.log("Set interval out called");
+
+// // }, 2000);
+
+
+// let name = "John Doe";
+// function getName() {
+//   let name = "Ali";
+//   console.log(name);
+// };
+
+
+
+
+class User {
+  #cnic;
+  #email;
+  #role;
+
+  constructor(name, phone, email, role, cnic) {
+    this.name = name;
+    this.phone = phone;
+    this.#email = email;
+    this.#role = role;
+    this.#cnic = cnic;
+  }
+
+  login() {
+    console.log("User logged in");
+  }
+
+
+  get cnic() { // getter method
+    return this.#cnic;
+  }
+  get email() { // getter method
+    return this.#email;
+  }
+  get role() { // getter method
+    return this.#role;
+  }
 }
-const arrowFn = () => {
 
-}
-const addFunc = add;
-console.log(addFunc);
-
-// First Class Functions: function that can be treated as value.
-// Higher Order Functions: functions that can accept another function as arguement or return another function; 
-function sayHello() {// first class function
-  return "Hello, ";
-}
-
-
-function greeting(num1Param, name) { // higher order
-  console.log(num1Param() + name);
-  //   console.log(helloMessage() + name);
-}
-// Pass `sayHello` as an argument to `greeting` function
-greeting(sayHello, "JavaScript!"); // greeting(function, value);
-// Hello, JavaScript!
-
-
-// Higher Order Functions Examples: map, filter, some, these all are HOFs. 
-
-
-
-
-
-const arr = [1, 2, 1, 3, 41, 10, 100]
-const filterArr = arr.filter((item) => item > 40)
-console.log(filterArr);
-
-
-
-
-
-
-
-
-console.log("Before Set timeout");
-
-const callback = () => {
-  console.log("Call Back function called after 2s");
-  
-  console.log("using Set time out ");
+// Inheritance from User class to Student and Teacher class
+class Student extends User {
+  constructor(name, phone, email, role, cnic, studentId) {
+    super(name, phone, email, role, cnic);
+    this.studentId = studentId;
+  }
+  login() { // method overriding (polymorphism)
+    console.log("Student logged in");
+  }
+  markAttendance() {
+    console.log("Attendance marked");
+  }
 }
 
-setTimeout(callback, 2000);
 
-console.log("After Set timeout");
+class Teacher extends User {
+  constructor(name, phone, email, role, cnic, teacherId) {
+    super(name, phone, email, role, cnic);
+    this.teacherId = teacherId;
+  }
+  login() {
+    console.log("Teacher logged in");
+  }
+
+  checkAttendance() {
+    console.log("Attendance checked");
+  }
+
+}
 
 
-// setInterval(() => {
-//   console.log("Set interval out called");
-
-// }, 2000);
+const student1 = new Student("Ali", "123456789", "ali@example.com", "student", "1234567890123", "S001");
+// console.log(student1)
+console.log(student1.cnic)
+console.log(student1.email)
+console.log(student1.role)
+student1.login();
