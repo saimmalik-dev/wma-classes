@@ -1,204 +1,147 @@
-// // ASYNCHRONOUS JAVASCRIPT
+// // const displayName = (name) => {
+// //     console.log("Hello User", name);
+// // }
 
-// // Asynchronous JavaScript allows for non-blocking operations, enabling tasks to run concurrently without waiting for each other to complete. This is particularly useful for tasks like fetching data from APIs, reading files, or performing time-consuming computations.
+// // const showDashboard = (name, callback) => {
+// //     callback(name)
+// //     console.log("Showing Dashboard data for " + name);
+// // }
 
+// // const Login = () => {
+// //     const user = "ali"
+// //     if (true) {
+// //         showDashboard(user, displayName)
+// //     }
+// // }
 
-// // blocking request -> any request that stops the execution of code until it completes, causing delays in the program's flow. 
-// // In contrast, asynchronous requests allow the program to continue executing other tasks while waiting for the response, improving efficiency and responsiveness.
-
-
-// // // Synchronous JavaScript Code
-// // console.log(1);
-// // console.log(2);
-// // console.log(3);
-
-
-
-// // // Asynchronous JavaScript Code Snippet
-// // console.log("Hi!");
-
-// // setTimeout(function timeout() {
-// //     console.log("Click the button!");
-// // }, 5000);
-
-// // console.log("Welcome to SMIT.");
+// // Login()
 
 
+// function greet(name, callback) {
+//     console.log(`Hello ${name} !`); // template literals or backticks notation
+//     console.log("Hello", name, "!");
+//     callback();  // calling the callback function
+// }
+
+// function afterGreet() { // CALLBack
+//     console.log('Greeting is complete!');
+// }
+
+// greet('Ali', () => {
+//     console.log('Hello this is callback function ');
+
+// }); // greet function accepting afterGreet as a callback function
 
 
+// Ali is calling me, i said i will call him later
+// Callbacks ->  a callback is a function passed as an argument to another function, which is intended to be executed (or "called back") later. 
+
+const callUser = (name, asdf) => {
+    console.log("Calling to " + name);
+    console.log(name + "pick up call. I will call back you later ");
+
+    asdf("Ali")
 
 
-// // JavaScript Event Loop Demo
-// console.log("1: Start");
+}
 
-// setTimeout(() => {
-//     console.log("2: setTimeout callback");
-// }, 0);
+const callingBacktoUser = (name) => {
+    console.log("Calling to" + name + " from Asad");
 
+}
 
-// console.log("Promise", Promise.prototype);
+const calling = () => {
+    console.log("Ali is calling to Asad");
+    callUser("Asad", callingBacktoUser)
 
-// // Promise
-// // Promise -> A Promise is an object representing the eventual completion or failure of an asynchronous operation.
-// // Promise States
-// // 1. Pending: The initial state of a Promise, neither fulfilled nor rejected.
-// // 2. Fulfilled: The state of a Promise representing a successful operation.
-// // 3. Rejected: The state of a Promise representing a failed operation.
+}
 
-// // Settled Promises -> A settled Promise is one that has been either fulfilled or rejected, meaning it has completed its asynchronous operation and has a definitive outcome.
+calling()
 
 
+// Callback Hell -> Aik masla hai
+// call back hell creates when multiple async operations, which are depend on one another.
 
+
+// // Promises -> promises that some value or result will be returned, either true or false.
 
 // const promise = new Promise((resolve, reject) => {
-//     console.log("Promose Execution start");
+//     console.log("Calling API for Data....");
 
-//     setTimeout(() => {
-//         resolve("Promise Resolved")
-//     }, 3000);
+//     let data = ["sad"];
+//     if (data.length > 0) {
+//         console.log("API se data agya");
 
-//     // reject("Promise Rejected")
-
-// })
+//         setTimeout(() => {
+//             resolve("Promise is resolved successfully");
+//         }, 3000);
+//     } else {
+//         console.log("API se data nhi agya :)");
+//         reject("Promise is rejected");
+//     }
+// });
 
 // console.log(promise);
 
 
-// const callback = () => {
-//     console.log(promise);
-// }
-// setInterval(callback, 1000);
 
-
-
-
-
-
-// Promise.resolve(promise)
-//     .then(() => {
-//         console.log("3: Promise.then (microtask)");
+// promise
+//     .then((res) => {
+//         console.log(promise);
+//         console.log(res);
 //     })
-//     .then(() => {
-//         console.log("4: Chained Promise.then");
-//     });
+//     .catch((err) => {
+//         console.error(err);
 
-// console.log("5: End");
-
-
-
-// // Expected output order: 1, 5, 3, 4, 2
-// // Sync code runs first, then microtasks, then macrotasks
-
-
-
-// // Microtasks vs Macrotasks in JavaScript
-// // Microtask Queue will only execute after the call stack is empty,
-// // Macrotask Queue will only execute after the microtask queue is empty, and the call stack is empty.
-// // This ensures that microtasks have a higher priority than macrotasks in the event loop.
+//     })
 
 
 
 
+const promise = new Promise((resolve, reject) => {
+    console.log("Calling Chefs ...");
+
+    let foodReady = false;
+    if (foodReady == true) {
+        // console.log("API se data agya");
+        setTimeout(() => {
+            resolve("Call waiter, Food is ready");
+        }, 3000);
+    } else {
+        console.log("API se data nhi agya :)");
+        reject("Promise is rejected");
+    }
+});
+
+console.log(promise);
 
 
 
-// JSON -> JavaScript Object Notation
+promise
+    .then((res) => {
+        // console.log(promise);
+        console.log(res);
+        console.log("Serve the food to customers");
+
+    })
+    .catch((err) => {
+        console.error(err);
+
+    })
 
 
 
 
+const inp = document.getElementById("input");
+const btn = document.getElementById("btn");
 
+btn.addEventListener("click", () => {
+    const obj = {
+        id: 1,
+        title: inp.value,
+    }
+    console.log(obj);
 
-// const getData = () => {
-
-//     try {
-//         const data = fetch('https://fakestoreapi.com/products/1')
-//             .then((res) => { return res.json() })
-//             .then((res) => {
-
-//                 console.log(res)
-//                 console.log(res.image)
-//                 console.log(JSON.stringify(res))
-
-//                 return res;
-//             }
-//             )
-//         console.log("data", data);
-//         console.log("json data", JSON.stringify(data));
-//         return data
-//     }
-//     catch (err) {
-//         console.log(err);
-//         throw new Error("Promise failed");
-
-//     }
-// }
-
-
-
-const getData = () => {
-    return new Promise((resolve, reject) => {
-
-        const data = fetch('https://fakestoreapi.com/products/1')
-            .then((res) => { return res.json() })
-            .then((res) => {
-
-                console.log(res)
-                console.log(res.image)
-                console.log(JSON.stringify(res))
-
-                return res;
-            })
-        if (!data) {
-            reject("Promise failed");
-        }
-        resolve(data);
-
-
-    });
-
-}
-
-getData().then((res) => {
-    console.log(res);
-    return res;
-}).catch((err) => {
-    console.log(err);
+    localStorage.setItem("todos", JSON.stringify(obj))
 
 })
-
-console.log("Console after then");
-
-
-
-localStorage.setItem("name", "value")
-localStorage.getItem("name")
-localStorage.removeItem("name")
-
-
-
-// CRUD -> Create, Read, Update, Delete
-
-const todoList = [
-    {
-        id: 1,
-        todo: "Learn JavaScript",
-    },
-    {
-        id: 2,
-        todo: "Learn React",
-    },
-    {
-        id: 3,
-        todo: "Learn Node.js",
-    },
-    {
-        id: 4,
-        todo: "Learn Express.js",
-    },
-    
-    {
-        id:5,
-        todo: "Learn Next JS",
-    },
-]
