@@ -1,147 +1,118 @@
-// // const displayName = (name) => {
-// //     console.log("Hello User", name);
+// // const promise = new Promise() // it accepts a function with two parameters resolve and reject
+
+
+// //     (resolve, reject)=> { // executor function, which is accepted by the promise constructor
+
 // // }
-
-// // const showDashboard = (name, callback) => {
-// //     callback(name)
-// //     console.log("Showing Dashboard data for " + name);
-// // }
-
-// // const Login = () => {
-// //     const user = "ali"
-// //     if (true) {
-// //         showDashboard(user, displayName)
-// //     }
-// // }
-
-// // Login()
-
-
-// function greet(name, callback) {
-//     console.log(`Hello ${name} !`); // template literals or backticks notation
-//     console.log("Hello", name, "!");
-//     callback();  // calling the callback function
-// }
-
-// function afterGreet() { // CALLBack
-//     console.log('Greeting is complete!');
-// }
-
-// greet('Ali', () => {
-//     console.log('Hello this is callback function ');
-
-// }); // greet function accepting afterGreet as a callback function
-
-
-// Ali is calling me, i said i will call him later
-// Callbacks ->  a callback is a function passed as an argument to another function, which is intended to be executed (or "called back") later. 
-
-const callUser = (name, asdf) => {
-    console.log("Calling to " + name);
-    console.log(name + "pick up call. I will call back you later ");
-
-    asdf("Ali")
-
-
-}
-
-const callingBacktoUser = (name) => {
-    console.log("Calling to" + name + " from Asad");
-
-}
-
-const calling = () => {
-    console.log("Ali is calling to Asad");
-    callUser("Asad", callingBacktoUser)
-
-}
-
-calling()
-
-
-// Callback Hell -> Aik masla hai
-// call back hell creates when multiple async operations, which are depend on one another.
-
-
-// // Promises -> promises that some value or result will be returned, either true or false.
 
 // const promise = new Promise((resolve, reject) => {
-//     console.log("Calling API for Data....");
+//     resolve('This is my resolved data') // this will be called when the promise is fulfilled
+//     reject('This is my rejected data') // this will be called when the promise is rejected
+// })
 
-//     let data = ["sad"];
-//     if (data.length > 0) {
-//         console.log("API se data agya");
+// // promise.then()
 
-//         setTimeout(() => {
-//             resolve("Promise is resolved successfully");
-//         }, 3000);
-//     } else {
-//         console.log("API se data nhi agya :)");
-//         reject("Promise is rejected");
-//     }
-// });
 
-// console.log(promise);
+// //    const onfulfilled=  ()=> { // onfulfilled function, which is called when the promise is fulfilled
+
+// // }
+// // promise.then(onfulfilled)
 
 
 
-// promise
-//     .then((res) => {
-//         console.log(promise);
-//         console.log(res);
-//     })
-//     .catch((err) => {
-//         console.error(err);
+// promise.then((response) => {
+//     console.log("Show user data on page");
+// }).then((result) => {
+//     console.log("Show success message on page");
+// })
+// .catch((error) => {
+//     console.log("Show error message on page");
+// }).finally((result) => {
+//     console.log("Finally, Promise is either fulfilled or rejected");
+// })
 
-//     })
 
 
+let input = document.getElementById('input')
+let btn = document.getElementById('btn')
+let output = document.getElementById('output')
+let todos = []
 
-
-const promise = new Promise((resolve, reject) => {
-    console.log("Calling Chefs ...");
-
-    let foodReady = false;
-    if (foodReady == true) {
-        // console.log("API se data agya");
-        setTimeout(() => {
-            resolve("Call waiter, Food is ready");
-        }, 3000);
-    } else {
-        console.log("API se data nhi agya :)");
-        reject("Promise is rejected");
+btn.addEventListener('click', () => {
+    let task = input.value;
+    if (!task) {
+        alert("Please enter a task")
+        return;
     }
-});
 
-console.log(promise);
-
-
-
-promise
-    .then((res) => {
-        // console.log(promise);
-        console.log(res);
-        console.log("Serve the food to customers");
-
-    })
-    .catch((err) => {
-        console.error(err);
-
-    })
-
-
-
-
-const inp = document.getElementById("input");
-const btn = document.getElementById("btn");
-
-btn.addEventListener("click", () => {
-    const obj = {
-        id: 1,
-        title: inp.value,
+    let obj = {
+        task: task,
+        id: todos.length + 1
     }
-    console.log(obj);
-
-    localStorage.setItem("todos", JSON.stringify(obj))
-
+    todos.push(obj)
+    showTasks()
+    input.value = ""
 })
+
+
+// let editBtn = document.getElementById('edit')
+// editBtn.addEventListener('click', () => {
+//     let task = input.value;
+// })
+
+
+// let deleteBtn = document.getElementById('delete')
+// deleteBtn.addEventListener('click', () => {
+//     let task = input.value;
+// })
+
+let editId;
+let showTasks = () => {
+    console.log(todos);
+    output.innerHTML = ""
+    todos.map((item, index) => {
+        console.log("item", item);
+        const todoDiv = document.createElement("div")
+        todoDiv.setAttribute("id", "todo-item")
+        const todoTitle = document.createElement("h4")
+        const editBtn = document.createElement("button")
+        editBtn.innerText = "Edit" + item.id
+
+        editId = item.id;
+        const deleteBtn = document.createElement("button")
+        deleteBtn.innerText = "Delete"
+
+
+        todoTitle.innerText = item.task;
+        todoDiv.appendChild(todoTitle)
+        todoDiv.appendChild(editBtn)
+        todoDiv.appendChild(deleteBtn)
+
+
+
+        output.append(todoDiv)
+    })
+
+
+
+}
+
+// logic for edit and delete buttons
+// edit button -> click event
+// edit button -> get id of that specific todo-item
+// edit click -> pr input focus
+// retype kr k update
+// 
+
+
+
+
+
+
+
+
+
+
+
+
+

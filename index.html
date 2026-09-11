@@ -6,21 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
-            width: 100;
+        /* div {
+            width: 100%;
+        } */
+
+        #output {
+            width: 100%;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        #btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+
+        #todo-item {
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
         }
     </style>
 </head>
 
 <body>
     <h1>
-        Callbacks, Callback Hell, Promises, Async Await
+        Todo List
     </h1>
 
 
     <div>
-        <input type="text" name="" id="input">
+        <input type="text" name="" id="input" placeholder="Enter your Todo">
         <button id="btn">add</button>
+    </div>
+
+    <!-- todo will be displayed here -->
+    <div id="output">
+        <!-- <div id="todo-item">
+            <h4>
+                Todo title here
+            </h4>
+            <div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+
+        </div> -->
     </div>
 
     <script src="./app.js"></script>
