@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form action="" id="signup">
+        <input type="text" name="email" id="email" placeholder="Enter your email">
+        <input type="password" name="password" id="password" placeholder="Enter your password">
+        <button type="submit">Signup</button>
+    </form>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+
+    <script>
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBymWgd6FLznQpkC8GRvrW-qEI73xhyOSI",
+            authDomain: "authentication-54f54.firebaseapp.com",
+            projectId: "authentication-54f54",
+            storageBucket: "authentication-54f54.firebasestorage.app",
+            messagingSenderId: "481007716898",
+            appId: "1:481007716898:web:2789586dee7717e728587b"
+        };
+        firebase.initializeApp(firebaseConfig); // iniialize firebase app with current firebase configuration. 
+    </script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
