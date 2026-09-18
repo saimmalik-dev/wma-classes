@@ -10,15 +10,18 @@
 <body>
 
 
-    <form action="" id="signup">
+    <form action="" id="signup-form">
         <input type="text" name="email" id="email" placeholder="Enter your email">
         <input type="password" name="password" id="password" placeholder="Enter your password">
         <button type="submit">Signup</button>
+        <button type="submit" id="signin">
+            SignIn / Login
+        </button>
     </form>
 
 
-
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <!-- Older version of firebase sdk is used here. You can use the latest version of firebase sdk by changing the version number in the script src url. -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
@@ -35,9 +38,9 @@
             appId: "1:481007716898:web:2789586dee7717e728587b"
         };
         firebase.initializeApp(firebaseConfig); // iniialize firebase app with current firebase configuration. 
-    </script>
+    </script> -->
 
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
 
 </body>
 
