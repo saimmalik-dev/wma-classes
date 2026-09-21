@@ -1,8 +1,14 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js"; // firebase-app.js -> mtlb complete firebase app ko lekr ao.
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js"; // firebase-auth.js -> mtlb firebase ki app mein se "authentication" ki service lekr ao
-import { getDatabase, } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js"; // firebase-auth.js -> mtlb firebase ki app mein se "authentication" ki service lekr ao
+import {
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    // imports for google sign-in
+    GoogleAuthProvider, signInWithPopup,
+    // imports for phone number sign in 
+    RecaptchaVerifier, signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js"; // firebase-auth.js -> mtlb firebase ki app mein se "authentication" ki service lekr ao
+import { getDatabase,collection  } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js"; // firebase-auth.js -> mtlb firebase ki app mein se "authentication" ki service lekr ao
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -110,3 +116,70 @@ signinBtn.addEventListener("click", (e) => {
 })
 
 
+
+const googleSigninBtn = document.getElementById("google-signin");
+googleSigninBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    const provider = new GoogleAuthProvider();
+    console.log(provider)
+
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+
+            console.log(user, token)
+        }).catch((error) => {
+            // Handle Errors here.
+            console.log(error)
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+
+})
+
+
+
+// SignUp using phone number
+const phone = document.getElementById("phone");
+const phoneForm = document.getElementById("phone-form");
+const phoneBtn = document.getElementById("phone-btn")
+
+
+phoneForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevent the default form submission behavior
+
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'phone-btn', {
+        'size': 'invisible',
+        'callback': (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            onSignInSubmit();
+        }
+    });
+    const phoneNumber = phone.value;
+    const appVerifier = window.recaptchaVerifier;
+    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+        .then((confirmationResult) => {
+            // SMS sent. Prompt user to type the code from the message, then sign the
+            // user in with confirmationResult.confirm(code).
+            window.confirmationResult = confirmationResult;
+            // ...
+        }).catch((error) => {
+            // Error; SMS not sent
+            console.log(error)
+            // ...
+        });
+
+
+
+})
