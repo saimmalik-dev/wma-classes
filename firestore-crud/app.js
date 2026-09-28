@@ -28,11 +28,12 @@ form.addEventListener('submit', (e) => {
     const todoValue = todoInp.value;
     const obj = {
         title: todoValue,
-        creatAt: Date.now()
+        createdAt: Date.now()
     }
     addDoc(todosRef, obj).then((res) => {
         alert("todo added successfully")
         getTodos();
+
     }).catch((err) => {
         console.log("error", err);
 
@@ -54,23 +55,35 @@ const getTodos = () => {
         outputDiv.innerHTML = ""
         console.log("all todos:", result);
         result.forEach(todo => {
-            const div = document.createElement("div") // main todo item div
+            console.log(todo);
+            console.log("todo.data().", todo.data());
+
+
+            const mainTodoDiv = document.createElement("div") // main todo item div
             const h4 = document.createElement("h4")
             const editBtn = document.createElement("button")
             const deleteBtn = document.createElement("button")
-            div.setAttribute("id", "todo-item")
+            mainTodoDiv.setAttribute("id", "todo-item")
             h4.innerText = todo.data().title;
+            // h4.innerText = todo.data().creatAt;
             editBtn.innerText = "Edit"
-            editBtn.onclick = () => editFunction(todo.id)
+            // editBtn.onclick = editFunction(todo.id) // invalid
+            editBtn.onclick = () => editFunction(todo.id) // implicit return
+
+
+
+            // editBtn.onclick = () => editFunction(todo.id)
+
+
             deleteBtn.innerText = "Delete"
 
             console.log("actual todo:", todo.id);
             console.log("actual todo:", todo.data());
 
-            div.appendChild(h4)
-            div.appendChild(editBtn)
-            div.appendChild(deleteBtn)
-            outputDiv.appendChild(div)
+            mainTodoDiv.appendChild(h4)
+            mainTodoDiv.appendChild(editBtn)
+            mainTodoDiv.appendChild(deleteBtn)
+            outputDiv.appendChild(mainTodoDiv)
         });
     }).catch((err) => {
         console.log("err", err);
@@ -84,12 +97,13 @@ getTodos()
 
 const editFunction = (id) => {
     console.log("Edit todo id;:", id);
-    const docRef = doc(todosRef, id) // todosRef -> /todos
+    const docRef = doc(todosRef, id) // todosRef -> /todos, docRef -> document reference
     getDoc(docRef).then((res) => { // get single element
-        console.log("res", res);
-        console.log("res", res.data());
+        // console.log("res", res);
+        // console.log("res", res.data());
         const singleTodo = res.data();
         console.log("todoInp", todoInp);
+        console.log("singleTodo", singleTodo);
 
         todoInp.value = singleTodo.title
         // btn.removeEventListener("click"); // remove previous listener  (which is creating new document)
@@ -101,6 +115,8 @@ const editFunction = (id) => {
             }
             updateDoc(docRef, updatedObj).then((res) => {
                 alert("Document updated ")
+                getTodos()
+                todoInp.value = ""
             }).catch((err) => {
                 console.log(err);
 
