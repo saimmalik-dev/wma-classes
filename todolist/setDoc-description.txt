@@ -1,0 +1,12 @@
+create document in firesore -> addDoc
+update document in firestore  -> updateDoc
+
+what if i need both, or i want to set custom_id for every document?
+let look at a scenario
+user registers -> get the authentication_id or uuid "JtlT4zXbW2hXVuzlrlifCvRBRWt2"
+and i need to save the data in firestore using this id, what i will do ??
+because -> addDoc does not accept id, and updateDoc -> only update the existing doucments. 
+To solve this we have setDoc() -> which can create and update documents
+create -> when does not exists
+update -> when exists
+
