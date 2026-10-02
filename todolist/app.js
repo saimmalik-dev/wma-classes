@@ -44,12 +44,15 @@ form.addEventListener("submit", (e) => {
 
 // Get all todos
 const output = document.getElementById("output")
-const getTodos = () => {
-    output.innerHTML = "Loading Todos...."
-    getDocs(todosCollectionRef).then((result) => {
-        console.log("all todo dataL", result);
+const getTodos = async () => {
+    try {
+
+        output.innerHTML = "Loading Todos...."
+        const todos = await getDocs(todosCollectionRef);
+
+        console.log("all todo dataL", todos);
         output.innerHTML = ""
-        result.forEach((item, index) => {
+        todos.forEach((item, index) => {
             const todo = item.data();
             console.log("todo", todo);
             console.log("id", item.id);
@@ -72,10 +75,10 @@ const getTodos = () => {
 
         })
 
-
-    }).catch((err) => {
-        console.log(err);
-    })
+    }
+    catch (err) {
+        console.log("error", err);
+    }
 }
 
 getTodos()
@@ -126,5 +129,47 @@ const deleteFunction = (id) => {
 
     })
 
+
+}
+
+
+getDocs(userCollectionRef).then((res) => {
+    console.log("all users will be fetched");
+    // get single user details
+    getDoc(user.id).then((res) => {
+        console.log("Single user details");
+        // now get all the posts of that specific user
+        getDocs(postCollectionRef).then((res) => {
+            console.log("All posts by that user");
+            // get single post likes and comments
+            getDoc(post.id).then((res) => {
+                // single post likes or comments
+            }).catch((err) => {
+                console.log(err);
+
+            })
+        }).catch((err) => {
+            console.log(err);
+        })
+    }).catch((err) => {
+        console.log(err);
+    })
+}).catch((err) => {
+    console.log(err);
+
+})
+
+const ASYNCFunc = async () => {
+    try {
+
+        const allUser = await getDocs(userCollectionRef)
+        const userDetails = await getDoc(allUser[0].id)
+        const allPostofUser = await getDocs(postCollectionRef)
+        const detailsOfUserPosts = await getDoc(post[0].id)
+
+    } catch (err) {
+        console.log("Error", err);
+
+    }
 
 }
