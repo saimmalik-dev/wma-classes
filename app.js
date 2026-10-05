@@ -1,110 +1,96 @@
-let todos = [];
-let inp = document.getElementById("input")
-let btn = document.getElementById("btn")
-let outputDiv = document.getElementById("output")
-// let editIndex = -1
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {
+    getFirestore,
+    setDoc,
+    doc,
+    collection,
+    serverTimestamp,
+    getDoc,
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-btn.addEventListener("click", addTodo = (e) => {
-    e.preventDefault();
-    const obj = {
-        title: inp.value,
-        createdAt: Date.now(),
-        status: false,
-        id: todos.length + 1
-    }
-    todos.push(obj)
-    getTodos()
-})
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBGd_CdNX9wlg7KNH8usbLoaSHCxIAxuXA",
+    authDomain: "dynamic-website-badc8.firebaseapp.com",
+    projectId: "dynamic-website-badc8",
+    storageBucket: "dynamic-website-badc8.firebasestorage.app",
+    messagingSenderId: "430317438268",
+    appId: "1:430317438268:web:34273183a5311804e70a39"
+};
 
-const getTodos = () => {
-    outputDiv.innerHTML = ""
-    console.log("print todos", todos);
-
-    // const allTodos = localStorage.getItem("")
-    todos.forEach((item, index) => {
-        const mainDiv = document.createElement("div")
-        const div = document.createElement("div")
-        const titleDiv = document.createElement("div")
-        const statusInp = document.createElement("input")
-        const title = document.createElement("h4")
-        const editBtn = document.createElement("button")
-        const deleteBtn = document.createElement("button")
-
-
-        title.innerText = item.title;
-        statusInp.setAttribute("type", "checkbox");
-        // statusInp.type = "checkbox";
-        statusInp.checked = item.status;
-        editBtn.innerText = "Edit"
-        editBtn.addEventListener("click", () => {
-            // editIndex = index
-            editFunction(item.id, index)
-        })
-        editBtn.click = console.log("edit");
-
-        deleteBtn.innerText = "Delete"
-
-        mainDiv.setAttribute("id", "todo-item")
-        titleDiv.setAttribute("id", "todo-item")
-        titleDiv.appendChild(statusInp)
-        titleDiv.appendChild(title)
-        div.appendChild(editBtn)
-        div.appendChild(deleteBtn)
-        // mainDiv.appendChild(statusInp)
-        // mainDiv.appendChild(title)
-        mainDiv.appendChild(titleDiv)
-        mainDiv.appendChild(div)
-
-        // Append to the static div created outside of it.
-        outputDiv.appendChild(mainDiv)
-
-    })
-}
-
-getTodos()
-
-let editTodo = null
-let editIndex = -1
-const editFunction = (id, index) => {
-
-    // Step:1 -> find the todo, set the inp with todo value
-    // if (!id) return;
-    console.log("index", index);
-
-    const todo = todos.filter((item) => item.id == id)
-    console.log("todo", todo);
-    console.log("todo", todo[0].title);
-
-    inp.value = todo[0].title;
-    btn.innerText = 'Save Todo'
-    editIndex = index
-    editTodo = todo
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+export const db = getFirestore(app)
+const usersCollectionRef = collection(db, "users")
 
 
+let signupEmail = document.getElementById("signup-email")
+let signupPassword = document.getElementById("signup-password")
+// Signup form handler
+const signupForm = document.getElementById("signup-form");
+if (signupForm) {
+    signupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    btn.removeEventListener('click', addTodo) // remove old add listener
+        const email = signupEmail.value.trim();
+        const password = signupPassword.value;
 
-    btn.addEventListener("click", () => { // add new listener for edit
-        console.log("editTodo", editTodo);
-
-        const updatedTodo = {
-            title: inp.value,
-            createdAt: editTodo[0].createdAt,
-            status: editTodo[0].status,
-            id: editTodo[0].id
-            // ...todo // rest operator -> 
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            console.log("User signed up:", userCredential.user);
+            console.log("User ID:", userCredential.user.uid);
+            const docId = await doc(usersCollectionRef, userCredential.user.uid)
+            await setDoc(docId, {
+                email: email,
+                password: password,
+                createdAt: serverTimestamp(),
+                userId: userCredential.user.uid
+            })
+            alert("Signup successful!");
+            signupForm.reset();
+        } catch (error) {
+            console.error("Signup error:", error.code, error.message);
+            alert(error.message);
         }
-        // let editIndex = todos.findIndex(todo[0].title)
-        console.log("updatedTodo", updatedTodo);
-
-        console.log(todos);
-        todos[editIndex] = updatedTodo
-
-        console.log(todos);
-        getTodos()
-    })
-
-    console.log(todos);
-
+    });
 }
+
+let loginEmail = document.getElementById("login-email")
+let loginPassword = document.getElementById("login-password")
+// Login form handler
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = loginEmail.value.trim();
+        const password = loginPassword.value;
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("User logged in:", userCredential.user);
+            // get user details from firestore
+            const rawUser = await getDoc(doc(usersCollectionRef, userCredential.user.uid))
+            const user = await rawUser.data()
+            console.log("user", user);
+
+            alert("Login successful!");
+            loginForm.reset();
+        } catch (error) {
+            console.error("Login error:", error.code, error.message);
+            alert(error.message);
+        }
+    });
+}
+
+
