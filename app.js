@@ -1,96 +1,108 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import {
-    getFirestore,
-    setDoc,
-    doc,
-    collection,
-    serverTimestamp,
-    getDoc,
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+// // // // Prototypes in JS and Call,apply,bind methods
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBGd_CdNX9wlg7KNH8usbLoaSHCxIAxuXA",
-    authDomain: "dynamic-website-badc8.firebaseapp.com",
-    projectId: "dynamic-website-badc8",
-    storageBucket: "dynamic-website-badc8.firebasestorage.app",
-    messagingSenderId: "430317438268",
-    appId: "1:430317438268:web:34273183a5311804e70a39"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-export const db = getFirestore(app)
-const usersCollectionRef = collection(db, "users")
+// // // const string = "Hello, World!";
+// // // console.log(string.__proto__); // Accessing the prototype of the string object
+// // // console.log(string.length); // Accessing the length property of the string object
 
 
-let signupEmail = document.getElementById("signup-email")
-let signupPassword = document.getElementById("signup-password")
-// Signup form handler
-const signupForm = document.getElementById("signup-form");
-if (signupForm) {
-    signupForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+// // const obj = {
+// //     name: 'John Doe',
+// //     age: 30,
+// //     greet: function () {
+// //         console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+// //     }
+// // }
+// // console.log(typeof obj)
+// // console.log(obj)
+// // console.log(obj.name)
 
-        const email = signupEmail.value.trim();
-        const password = signupPassword.value;
 
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            console.log("User signed up:", userCredential.user);
-            console.log("User ID:", userCredential.user.uid);
-            const docId = await doc(usersCollectionRef, userCredential.user.uid)
-            await setDoc(docId, {
-                email: email,
-                password: password,
-                createdAt: serverTimestamp(),
-                userId: userCredential.user.uid
-            })
-            alert("Signup successful!");
-            signupForm.reset();
-        } catch (error) {
-            console.error("Signup error:", error.code, error.message);
-            alert(error.message);
-        }
-    });
-}
+// // // const newString = "Hello, JavaScript!";
+// // const newString = new String("Hello, JavaScript!");
+// // const number = 10.433
+// // console.log(number.__proto__);
+// // console.log(number);
 
-let loginEmail = document.getElementById("login-email")
-let loginPassword = document.getElementById("login-password")
-// Login form handler
-const loginForm = document.getElementById("login-form");
-if (loginForm) {
-    loginForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+// // const number2 = new Number(10)
+// // console.log(newString)
+// // console.log(newString.__proto__)
+// // console.log(newString.length)
+// // console.log(newString.toLowerCase())
 
-        const email = loginEmail.value.trim();
-        const password = loginPassword.value;
 
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            console.log("User logged in:", userCredential.user);
-            // get user details from firestore
-            const rawUser = await getDoc(doc(usersCollectionRef, userCredential.user.uid))
-            const user = await rawUser.data()
-            console.log("user", user);
+// // const p1 = {
+// //     name: "basic",
+// //     price: 200,
+// //     calAnnual: function () {
+// //         console.log("Annual", this.price * 12);
 
-            alert("Login successful!");
-            loginForm.reset();
-        } catch (error) {
-            console.error("Login error:", error.code, error.message);
-            alert(error.message);
-        }
-    });
-}
+// //     }
+// // }
+// // p1.calAnnual()
 
+
+// // const p2 = {
+// //     name: "platinum",
+// //     price: 500,
+// //     calAnnual: function () {
+// //         console.log("Annual", this.price * 12);
+
+// //     }
+// // }
+// // p2.__proto__ = p1 // p1 is the prototype of p2
+// // console.log(p2);
+// // // console.log(p2.__proto__);
+
+// // p2.calAnnual()
+
+// // const p3 = {
+// //     name: "basic",
+// //     price: 900,
+// //     calAnnual: function () {
+// //         console.log("Annual", this.price * 12);
+
+// //     }
+// // }
+// // console.log(p3.calAnnual());
+
+// // obj.__proto__
+
+
+// // const str = new String("Hello, World!"); // explicitly creating a string object using the String constructor
+// const str1 = "Hello, World!"; // implicitly creating a string primitive
+// str1.toLowerCase()
+
+// // string ki class se -> string ka object initialize hua, 
+// // then wo obj -> prototype bn kr str1 ko assign hogya 
+// // str1 = "Hello, World!" -> 
+// // str1.__proto__ = objStr
+// // objStr.__proto__ = Object.prototype
+// // Object.prototype = null
+
+// console.log(str1.__proto__);
+
+// str1.length
+
+
+
+
+// // Class-based approach
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     speak() {
+//         console.log(`${this.name} makes a noise.`);
+//     };
+// }
+
+// // Prototype-based approach
+// function Animal(name) {
+//     this.name = name;
+// }
+
+// Animal.prototype.speak = function () {
+//     console.log(this.name + ' makes a noise.');
+//     console.log(`${this.name} makes a noise.`); // template literal syntax
+// };
 

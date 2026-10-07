@@ -33,33 +33,32 @@
 
 <body>
     <h1>
-        Login
+        ProtoTypes in JS
     </h1>
 
 
-    <div>
-        <form action="" id="login-form">
-            <input type="text" name="" id="login-email" placeholder="Enter your email">
-            <input type="text" name="" id="login-password" placeholder="Enter your password">
-            <button id="btn">add</button>
-        </form>
-    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-    <a href="./signup.html">
-    Signup here
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCQ8-72UGYoYZ8wg1uxnEqjk8zTFMGlrcE",
+            authDomain: "chat-app-a367d.firebaseapp.com",
+            projectId: "chat-app-a367d",
+            storageBucket: "chat-app-a367d.firebasestorage.app",
+            messagingSenderId: "169336814542",
+            appId: "1:169336814542:web:d9956982911ce1a238899f"
+        };
 
-    </a>
-
-    <a href="./dashboard.html">
-Goto Dashboard
-
-    </a>
-  <a href="./website.html">
-Goto Website
-
-    </a>
-
-    <script type="module" src="./app.js"></script>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <!-- <script src="./app.js"></script> -->
 
 </body>
 
