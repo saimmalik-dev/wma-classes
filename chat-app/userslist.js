@@ -52,17 +52,22 @@ userEmail.innerText = loggedInUser.email
 
 
 // Create chat_id in firestore when loggedin user clicks on specific user.
-const createChatId = async (id) => {
+const createChatId = async (id) => { // 123
     try {
         console.log("create chat id");
 
 
-        let loggedInUserId = localStorage.getItem("id");
-        console.log("loggedInUserId", loggedInUserId);
+        let loggedInUserId = localStorage.getItem("id"); // current logged in user id
+        console.log("loggedInUserId", loggedInUserId); // hasnain id -> 
+        // 456
         console.log("id from param", id);
 
-        const chatId = loggedInUserId + "_" + id; // dkzejsShjdUoxS2GjBscOwc5LpN2 + kfDfvZQinRYgjIqelLuKrUcWr6E3 -> 
-        console.log("chatId", chatId);
+
+        // const sortedId = ["dkzejsShjdUoxS2GjBscOwc5LpN2", "kfDfvZQinRYgjIqelLuKrUcWr6E3"].sort()
+        // const sortedId = ["kfDfvZQinRYgjIqelLuKrUcWr6E3", "dkzejsShjdUoxS2GjBscOwc5LpN2"].sort() // after sorting ["dkzejsShjdUoxS2GjBscOwc5LpN2", "kfDfvZQinRYgjIqelLuKrUcWr6E3"]
+        const sortedId = [loggedInUserId, id].sort()
+        console.log("sortedId ", sortedId);
+        const chatId = sortedId[0] + "_" + sortedId[1]
 
         // Reference your subcollection
         const messagesCollectionRef = collection(db, "chats", chatId, "messages");

@@ -1,5 +1,5 @@
 
-import { doc, getDocs, collection, query, where, serverTimestamp, addDoc } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+import { doc, getDocs, collection, query, where, serverTimestamp, addDoc, onSnapshot,orderBy } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
 import { db } from "./app.js"
 
@@ -34,27 +34,41 @@ btn.addEventListener("click", async (e) => {
 
 const messagesDiv = document.getElementById("messages")
 const getMessages = async () => {
+
     try {
+        const userId = localStorage.getItem("id")
         const messageCollection = await collection(db, "chats", chatId, "messages")
-        const allMessages = await getDocs(messageCollection)
+        const q = query(messageCollection, orderBy("createdAt", "asc"));
+        await onSnapshot(q, (querySnapshot) => {
+            messagesDiv.innerHTML = null
+            querySnapshot.forEach(item => {
+                const message = item.data();
+                console.log("message", message);
+
+                const div = document.createElement("div")
+                const title = document.createElement("h2")
+                const timestamp = document.createElement("h5")
+
+
+                title.innerText = message.message
+                title.style.textAlign = message.senderId === userId ? "right" : "left" // ternary operator
+                title.style.backgroundColor = message.senderId === userId ? "green" : "wheat" // ternary operator
+                title.style.color = message.senderId === userId ? "white" : "black" // ternary operator
+                // if (message.senderId === userId) {
+                //     title.style.textAlign = "right"
+                // } else {
+                //     title.style.textAlign = "left"
+                // }
+                // timestamp.innerText = message.createdAt
+
+
+                div.appendChild(title)
+                div.appendChild(timestamp)
+                messagesDiv.appendChild(div)
+            });
+        })
         console.log("allMessages", allMessages)
-        allMessages.forEach(item => {
-            const message = item.data();
-            console.log("message", message);
 
-            const div = document.createElement("div")
-            const title = document.createElement("h2")
-            const timestamp = document.createElement("h5")
-
-
-            title.innerText = message.message
-            timestamp.innerText = message.createdAt
-
-
-            div.appendChild(title)
-            div.appendChild(timestamp)
-            messagesDiv.appendChild(div)
-        });
     } catch (err) {
         console.log(err);
 
